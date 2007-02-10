@@ -234,7 +234,7 @@ namespace OpenSebJ
 
                             // Use the application data directory defined as the temporary location to write the wave sample to
                             // TODO: Setup the extension to match the image type - however it seems to work even without an extension?
-                            string imageName = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\image" + i.ToString();
+                            string imageName = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\image" + i.ToString() + globalSettings.osj.imageDetails_Extension[i];
 
                             // Copy the memory stream to the temporary byte array
                             _bytes = globalSettings.osj.image_MemoryStream[i].ToArray();
@@ -290,7 +290,7 @@ namespace OpenSebJ
 
                             // Use the application data directory defined as the temporary location to write the wave sample to
                             // TODO: Setup the extension to match the image type - however it seems to work even without an extension?
-                            string videoName = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\video" + i.ToString() + ".wmv";
+                            string videoName = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\video" + i.ToString() + globalSettings.osj.videoDetails_Extension[i];
 
                             // Copy the memory stream to the temporary byte array
                             _bytes = globalSettings.osj.video_MemoryStream[i].ToArray();
@@ -949,7 +949,7 @@ namespace OpenSebJ
         {
             // Check that the video window has been opened. Otherwise exceptions can be thrown as their is nothing
             // to render to. Surprise ;-)
-            if (globalSettings.videoPortal == true)
+            if (globalSettings.videoPortal == true && globalSettings.videoPortal_eRenderReady == true)
             {
                 // Check for a loaded image - if one exists display it
                 //if (dsInterface.imageLocations[sample] != null)

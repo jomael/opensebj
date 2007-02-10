@@ -105,6 +105,7 @@ namespace OpenSebJ
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dXSoundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oSJSaveExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -114,7 +115,6 @@ namespace OpenSebJ
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.oSJSaveExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -517,6 +517,14 @@ namespace OpenSebJ
             this.dXSoundToolStripMenuItem.Text = "DX Sound";
             this.dXSoundToolStripMenuItem.Click += new System.EventHandler(this.dXSoundToolStripMenuItem_Click);
             // 
+            // oSJSaveExplorerToolStripMenuItem
+            // 
+            this.oSJSaveExplorerToolStripMenuItem.Name = "oSJSaveExplorerToolStripMenuItem";
+            this.oSJSaveExplorerToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.oSJSaveExplorerToolStripMenuItem.Text = "OSJ Save Explorer";
+            this.oSJSaveExplorerToolStripMenuItem.Visible = false;
+            this.oSJSaveExplorerToolStripMenuItem.Click += new System.EventHandler(this.oSJSaveExplorerToolStripMenuItem_Click);
+            // 
             // toolStrip
             // 
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -591,13 +599,6 @@ namespace OpenSebJ
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(38, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // oSJSaveExplorerToolStripMenuItem
-            // 
-            this.oSJSaveExplorerToolStripMenuItem.Name = "oSJSaveExplorerToolStripMenuItem";
-            this.oSJSaveExplorerToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.oSJSaveExplorerToolStripMenuItem.Text = "OSJ Save Explorer";
-            this.oSJSaveExplorerToolStripMenuItem.Click += new System.EventHandler(this.oSJSaveExplorerToolStripMenuItem_Click);
             // 
             // frmMainEditor
             // 

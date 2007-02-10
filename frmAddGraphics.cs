@@ -69,6 +69,10 @@ namespace OpenSebJ
                 byte[] _bytes;
                 _bytes = System.IO.File.ReadAllBytes(globalSettings.osj.image_Locations[_sample]);
                 globalSettings.osj.image_MemoryStream[_sample] = new System.IO.MemoryStream(_bytes);
+
+                // Get the extension for the image file
+                globalSettings.osj.imageDetails_Extension[_sample] = globalSettings.osj.image_Locations[_sample].Substring(globalSettings.osj.image_Locations[_sample].LastIndexOf('.'));
+
             }
 
             lblImage.Text = "Image: " + globalSettings.osj.image_Locations[_sample];
@@ -93,6 +97,9 @@ namespace OpenSebJ
                 byte[] _bytes;
                 _bytes = System.IO.File.ReadAllBytes(globalSettings.osj.video_Locations[_sample]);
                 globalSettings.osj.video_MemoryStream[_sample] = new System.IO.MemoryStream(_bytes);
+
+                // Get the extension for the video file
+                globalSettings.osj.videoDetails_Extension[_sample] = globalSettings.osj.video_Locations[_sample].Substring(globalSettings.osj.video_Locations[_sample].LastIndexOf('.'));
 
                 globalSettings.osj.video_Loaded[_sample] = true;
             }

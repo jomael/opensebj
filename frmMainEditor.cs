@@ -386,8 +386,11 @@ namespace OpenSebJ
                 
                 
                 // Can't handle two video portals
-                globalSettings.videoPortal = true;
+                //globalSettings.videoPortal = true;
                 videoToolStripMenuItem.Checked = true;
+
+                // Mark that the video portal still shouldn't start rendering yet
+                globalSettings.videoPortal_eRenderReady = false;
 
                 videoRender = new frmVideoRender();
                 videoRender.Visible = true;

@@ -69,3 +69,4 @@ obj\Release\OpenSebJ.exe.manifest
 obj\Release\OpenSebJ.application
 obj\Release\OpenSebJ.exe
 obj\Debug\OpenSebJ.frmSaveExplorer.resources
+obj\Release\OpenSebJ.frmSaveExplorer.resources
