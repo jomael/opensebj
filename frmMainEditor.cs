@@ -1,6 +1,6 @@
 /* 
  * OpenSebJ
- * Copyright (C) 2006  Sebastian Gray - sebastiangray@gmail.com 
+ * Copyright (C) 2007 Sebastian Gray - sebastiangray@gmail.com 
  * Website: http://www.evolvingsoftware.com/opensebj.html
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -325,6 +325,23 @@ namespace OpenSebJ
                 }
             }
 
+            // Make sure that if the video window has already been opened the videos will still be loaded
+            if (globalSettings.videoPortal == true)
+            {
+                // Pause any attempt to render
+                globalSettings.videoPortal_eRenderReady = false;
+
+                // Load the textures
+                eRender.LoadTextures();
+
+                // Load the videos
+                eRender.LoadVideos();
+
+                // Rendering OK now
+                globalSettings.videoPortal_eRenderReady = true;
+
+            }
+
             // Need to close any existing, open track editor and open another one
             openTrackEditor();
         }
@@ -443,6 +460,20 @@ namespace OpenSebJ
         {
             System.Diagnostics.Process.Start("http://www.evolvingsoftware.com/sample_search.html");
             this.TopMost = false;
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout AboutThis = new frmAbout(true);
+            AboutThis.Visible = true;
+            AboutThis.Activate();
+        }
+
+        private void oSJSaveExplorerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSaveExplorer saveExplorer = new frmSaveExplorer();
+            saveExplorer.Visible = true;
+            saveExplorer.Activate();
         }
 
     }

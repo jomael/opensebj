@@ -1,6 +1,6 @@
 /* 
  * OpenSebJ
- * Copyright (C) 2006  Sebastian Gray - sebastiangray@gmail.com 
+ * Copyright (C) 2007 Sebastian Gray - sebastiangray@gmail.com 
  * Website: http://www.evolvingsoftware.com/opensebj.html
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -234,7 +234,7 @@ namespace OpenSebJ
 
                             // Use the application data directory defined as the temporary location to write the wave sample to
                             // TODO: Setup the extension to match the image type - however it seems to work even without an extension?
-                            string imageName = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\image";
+                            string imageName = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\image" + i.ToString();
 
                             // Copy the memory stream to the temporary byte array
                             _bytes = globalSettings.osj.image_MemoryStream[i].ToArray();
@@ -245,6 +245,10 @@ namespace OpenSebJ
                             // Load the file using the standard DirectX interface
                             //dsInterface.loadSample(sampleName, i);
                             images[i] = Microsoft.DirectX.Direct3D.TextureLoader.FromFile(device, imageName);
+
+                            // Delete the file saved out
+                            System.IO.File.Delete(imageName);
+
                         }
                     }
                     catch (Exception e)
@@ -286,7 +290,7 @@ namespace OpenSebJ
 
                             // Use the application data directory defined as the temporary location to write the wave sample to
                             // TODO: Setup the extension to match the image type - however it seems to work even without an extension?
-                            string videoName = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\video";
+                            string videoName = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\video" + i.ToString() + ".wmv";
 
                             // Copy the memory stream to the temporary byte array
                             _bytes = globalSettings.osj.video_MemoryStream[i].ToArray();
@@ -297,6 +301,9 @@ namespace OpenSebJ
                             // Load the file using the standard Direct Show interface
                             dsGraph[i].RenderFile(videoName, null);
                             dsMediaControl[i] = (DirectShowLib.IMediaControl)dsGraph[i];
+
+                            // Delete the file saved out
+                            System.IO.File.Delete(videoName);
                         }
                     }
                     catch (Exception e)
@@ -822,7 +829,7 @@ namespace OpenSebJ
             }
         }
 
-        #endregion
+        
 
 
 
@@ -882,7 +889,7 @@ namespace OpenSebJ
 
         //}
 
-
+        #endregion
 
 
         public static void initDSArrays()
@@ -953,7 +960,6 @@ namespace OpenSebJ
                 }
 
                 // Check for a loaded video - if one exists - display it
-                //if (dsInterface.videoLocations[sample] != null)
                 if (globalSettings.osj.video_Locations[sample] != null)
                 {
 

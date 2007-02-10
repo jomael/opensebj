@@ -1,6 +1,6 @@
 /* 
  * OpenSebJ
- * Copyright (C) 2006  Sebastian Gray - sebastiangray@gmail.com 
+ * Copyright (C) 2007 Sebastian Gray - sebastiangray@gmail.com 
  * Website: http://www.evolvingsoftware.com/opensebj.html
  * 
  * This program is free software; you can redistribute it and/or modify

@@ -1,6 +1,6 @@
 /* 
  * OpenSebJ
- * Copyright (C) 2006  Sebastian Gray - sebastiangray@gmail.com 
+ * Copyright (C) 2007 Sebastian Gray - sebastiangray@gmail.com 
  * Website: http://www.evolvingsoftware.com/opensebj.html
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -66,6 +66,8 @@ namespace OpenSebJ
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.findAudioSamplesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,6 +101,8 @@ namespace OpenSebJ
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.findAudioSamplesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dXSoundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
@@ -110,10 +114,7 @@ namespace OpenSebJ
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.findAudioSamplesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.findAudioSamplesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.oSJSaveExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -197,6 +198,18 @@ namespace OpenSebJ
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(174, 6);
+            // 
+            // findAudioSamplesToolStripMenuItem
+            // 
+            this.findAudioSamplesToolStripMenuItem.Name = "findAudioSamplesToolStripMenuItem";
+            this.findAudioSamplesToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.findAudioSamplesToolStripMenuItem.Text = "Find Audio Samples";
+            this.findAudioSamplesToolStripMenuItem.Click += new System.EventHandler(this.findAudioSamplesToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(174, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -441,7 +454,8 @@ namespace OpenSebJ
             this.findAudioSamplesToolStripMenuItem1,
             this.toolStripSeparator5,
             this.aboutToolStripMenuItem,
-            this.dXSoundToolStripMenuItem});
+            this.dXSoundToolStripMenuItem,
+            this.oSJSaveExplorerToolStripMenuItem});
             this.helpMenu.Name = "helpMenu";
             this.helpMenu.Size = new System.Drawing.Size(40, 20);
             this.helpMenu.Text = "&Help";
@@ -477,11 +491,24 @@ namespace OpenSebJ
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             this.toolStripSeparator8.Size = new System.Drawing.Size(174, 6);
             // 
+            // findAudioSamplesToolStripMenuItem1
+            // 
+            this.findAudioSamplesToolStripMenuItem1.Name = "findAudioSamplesToolStripMenuItem1";
+            this.findAudioSamplesToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+            this.findAudioSamplesToolStripMenuItem1.Text = "Find Audio Samples";
+            this.findAudioSamplesToolStripMenuItem1.Click += new System.EventHandler(this.findAudioSamplesToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(174, 6);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.aboutToolStripMenuItem.Text = "&About ...";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // dXSoundToolStripMenuItem
             // 
@@ -565,29 +592,12 @@ namespace OpenSebJ
             this.toolStripStatusLabel.Size = new System.Drawing.Size(38, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // toolStripSeparator2
+            // oSJSaveExplorerToolStripMenuItem
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(174, 6);
-            // 
-            // findAudioSamplesToolStripMenuItem
-            // 
-            this.findAudioSamplesToolStripMenuItem.Name = "findAudioSamplesToolStripMenuItem";
-            this.findAudioSamplesToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.findAudioSamplesToolStripMenuItem.Text = "Find Audio Samples";
-            this.findAudioSamplesToolStripMenuItem.Click += new System.EventHandler(this.findAudioSamplesToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(174, 6);
-            // 
-            // findAudioSamplesToolStripMenuItem1
-            // 
-            this.findAudioSamplesToolStripMenuItem1.Name = "findAudioSamplesToolStripMenuItem1";
-            this.findAudioSamplesToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-            this.findAudioSamplesToolStripMenuItem1.Text = "Find Audio Samples";
-            this.findAudioSamplesToolStripMenuItem1.Click += new System.EventHandler(this.findAudioSamplesToolStripMenuItem1_Click);
+            this.oSJSaveExplorerToolStripMenuItem.Name = "oSJSaveExplorerToolStripMenuItem";
+            this.oSJSaveExplorerToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.oSJSaveExplorerToolStripMenuItem.Text = "OSJ Save Explorer";
+            this.oSJSaveExplorerToolStripMenuItem.Click += new System.EventHandler(this.oSJSaveExplorerToolStripMenuItem_Click);
             // 
             // frmMainEditor
             // 
@@ -674,6 +684,7 @@ namespace OpenSebJ
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem findAudioSamplesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem oSJSaveExplorerToolStripMenuItem;
     }
 }
 

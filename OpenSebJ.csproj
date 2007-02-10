@@ -186,6 +186,12 @@
     <Compile Include="frmMainEditor.Designer.cs">
       <DependentUpon>frmMainEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSaveExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSaveExplorer.Designer.cs">
+      <DependentUpon>frmSaveExplorer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTrackEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +275,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>frmMainEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSaveExplorer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSaveExplorer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTrackEditor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmTrackEditor.cs</DependentUpon>
@@ -339,20 +349,20 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.DirectX">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.DirectX.DirectSound">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

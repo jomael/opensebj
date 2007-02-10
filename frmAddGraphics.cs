@@ -1,6 +1,6 @@
 /* 
  * OpenSebJ
- * Copyright (C) 2006  Sebastian Gray - sebastiangray@gmail.com 
+ * Copyright (C) 2007 Sebastian Gray - sebastiangray@gmail.com 
  * Website: http://www.evolvingsoftware.com/opensebj.html
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -93,6 +93,8 @@ namespace OpenSebJ
                 byte[] _bytes;
                 _bytes = System.IO.File.ReadAllBytes(globalSettings.osj.video_Locations[_sample]);
                 globalSettings.osj.video_MemoryStream[_sample] = new System.IO.MemoryStream(_bytes);
+
+                globalSettings.osj.video_Loaded[_sample] = true;
             }
 
             lblVideo.Text = "Video: " + globalSettings.osj.video_Locations[_sample];

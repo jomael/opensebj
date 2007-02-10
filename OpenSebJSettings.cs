@@ -1,6 +1,6 @@
 /* 
  * OpenSebJ
- * Copyright (C) 2006  Sebastian Gray - sebastiangray@gmail.com 
+ * Copyright (C) 2007 Sebastian Gray - sebastiangray@gmail.com 
  * Website: http://www.evolvingsoftware.com/opensebj.html
  * 
  * This program is free software; you can redistribute it and/or modify
@@ -134,6 +134,9 @@ namespace OpenSebJ
         public string[] videoDetails_videoSource = new string[262];
         public string[] videoDetails_videoCopyright = new string[262];
 
+        // Video Extenstion
+        public string[] videoDetails_Extension = new string[262];
+
         // The array of bytes for the video
         public MemoryStream[] video_MemoryStream = new MemoryStream[262];
 
@@ -145,6 +148,9 @@ namespace OpenSebJ
         public string[] imageDetails_imageName = new string[262];
         public string[] imageDetails_imageSource = new string[262];
         public string[] imageDetails_imageCopyright = new string[262];
+
+        // Image Extenstion
+        public string[] imageDetails_Extension = new string[262];
 
         // The array of bytes for the image
         public MemoryStream[] image_MemoryStream = new MemoryStream[262];
