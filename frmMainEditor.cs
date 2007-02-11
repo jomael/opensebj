@@ -158,7 +158,11 @@ namespace OpenSebJ
 
         private void frmMainEditor_Load(object sender, EventArgs e)
         {
+            // Set the MDI form so it is accesiable from all locations
             globalSettings.MDIForm = this;
+
+            // Open a blank track editor
+            openTrackEditor();
         }
 
         private void saveToolStripButton_Click(object sender, EventArgs e)

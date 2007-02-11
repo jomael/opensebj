@@ -38,8 +38,7 @@ namespace OpenSebJ
 	/// Summary description for frmAbout.
 	/// </summary>
 	public class frmAbout : System.Windows.Forms.Form
-	{
-		private System.Windows.Forms.PictureBox picDone;
+    {
         private System.Windows.Forms.Label lblAbout;
 		private System.Windows.Forms.PictureBox ghettoEditionLogo;
 		private System.Timers.Timer AboutTimer;
@@ -50,6 +49,7 @@ namespace OpenSebJ
 		//path used to locate and load fire.wav
 		string path;
         private Label lblVersion;
+        private Button cmbDone;
 
 		/// <summary>
 		/// Required designer variable.
@@ -73,7 +73,7 @@ namespace OpenSebJ
 			}
 			else
 			{
-				picDone.Visible = true;
+				cmbDone.Visible = true;
 			}
 		}
 
@@ -101,12 +101,11 @@ namespace OpenSebJ
 		{
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAbout));
             this.ghettoEditionLogo = new System.Windows.Forms.PictureBox();
-            this.picDone = new System.Windows.Forms.PictureBox();
             this.lblAbout = new System.Windows.Forms.Label();
             this.AboutTimer = new System.Timers.Timer();
             this.lblVersion = new System.Windows.Forms.Label();
+            this.cmbDone = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ghettoEditionLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AboutTimer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,31 +113,22 @@ namespace OpenSebJ
             // 
             this.ghettoEditionLogo.BackColor = System.Drawing.Color.Black;
             this.ghettoEditionLogo.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.ghettoEditionLogo.ErrorImage = null;
             this.ghettoEditionLogo.Image = ((System.Drawing.Image)(resources.GetObject("ghettoEditionLogo.Image")));
-            this.ghettoEditionLogo.Location = new System.Drawing.Point(6, 11);
+            this.ghettoEditionLogo.InitialImage = null;
+            this.ghettoEditionLogo.Location = new System.Drawing.Point(15, 18);
             this.ghettoEditionLogo.Name = "ghettoEditionLogo";
-            this.ghettoEditionLogo.Size = new System.Drawing.Size(420, 301);
+            this.ghettoEditionLogo.Size = new System.Drawing.Size(402, 280);
+            this.ghettoEditionLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.ghettoEditionLogo.TabIndex = 0;
             this.ghettoEditionLogo.TabStop = false;
             this.ghettoEditionLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ghettoEditionLogo_MouseDown);
-            // 
-            // picDone
-            // 
-            this.picDone.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picDone.Image = ((System.Drawing.Image)(resources.GetObject("picDone.Image")));
-            this.picDone.Location = new System.Drawing.Point(348, 425);
-            this.picDone.Name = "picDone";
-            this.picDone.Size = new System.Drawing.Size(78, 32);
-            this.picDone.TabIndex = 1;
-            this.picDone.TabStop = false;
-            this.picDone.Visible = false;
-            this.picDone.Click += new System.EventHandler(this.picDone_Click);
             // 
             // lblAbout
             // 
             this.lblAbout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAbout.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAbout.ForeColor = System.Drawing.Color.White;
+            this.lblAbout.ForeColor = System.Drawing.Color.Black;
             this.lblAbout.Location = new System.Drawing.Point(7, 316);
             this.lblAbout.Name = "lblAbout";
             this.lblAbout.Size = new System.Drawing.Size(419, 56);
@@ -155,7 +145,7 @@ namespace OpenSebJ
             // lblVersion
             // 
             this.lblVersion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lblVersion.ForeColor = System.Drawing.Color.Green;
             this.lblVersion.Location = new System.Drawing.Point(7, 372);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(419, 48);
@@ -164,15 +154,26 @@ namespace OpenSebJ
             this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblVersion.Click += new System.EventHandler(this.lblVersion_Click);
             // 
+            // cmbDone
+            // 
+            this.cmbDone.BackColor = System.Drawing.SystemColors.Control;
+            this.cmbDone.Location = new System.Drawing.Point(342, 434);
+            this.cmbDone.Name = "cmbDone";
+            this.cmbDone.Size = new System.Drawing.Size(75, 23);
+            this.cmbDone.TabIndex = 6;
+            this.cmbDone.Text = "Done";
+            this.cmbDone.UseVisualStyleBackColor = false;
+            this.cmbDone.Click += new System.EventHandler(this.cmbDone_Click);
+            // 
             // frmAbout
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(433, 469);
             this.ControlBox = false;
+            this.Controls.Add(this.cmbDone);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.lblAbout);
-            this.Controls.Add(this.picDone);
             this.Controls.Add(this.ghettoEditionLogo);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -187,9 +188,9 @@ namespace OpenSebJ
             this.TopMost = true;
             this.Load += new System.EventHandler(this.frmAbout_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ghettoEditionLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AboutTimer)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 		#endregion
@@ -207,7 +208,7 @@ namespace OpenSebJ
 
 			// I got sick of waiting while developing ;-)
 			#if (DEBUG)
-			picDone.Visible = true;
+			cmbDone.Visible = true;
 			#endif 
 
             
@@ -242,7 +243,7 @@ namespace OpenSebJ
 		}
 
 
-		private void picDone_Click(object sender, System.EventArgs e)
+		private void cmbDone_Click(object sender, System.EventArgs e)
 		{
 			testSound = null;
 			testCard = null;
@@ -294,7 +295,7 @@ namespace OpenSebJ
 
 		private void AboutTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
 		{
-			picDone.Visible = true;
+			cmbDone.Visible = true;
 		}
 
         

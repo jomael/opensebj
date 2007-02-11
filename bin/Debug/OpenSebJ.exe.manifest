@@ -74,14 +74,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OpenSebJ.exe" size="356352">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OpenSebJ.exe" size="339968">
       <assemblyIdentity name="OpenSebJ" version="0.0.7.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>4/rL6tREpA8cd+Gloh5lOb/hp7w=</dsig:DigestValue>
+        <dsig:DigestValue>KS9+V8xhnxWoKictz4drkUKrvV0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
