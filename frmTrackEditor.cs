@@ -81,9 +81,20 @@ namespace OpenSebJ
                 this._ctrlTrack[i].Size = new System.Drawing.Size(10000, globalSettings.osj.TrackEditor_TrackHeight);
                 this._ctrlTrack[i].TabIndex = i + 2;
 
-                // TODO: Should replace with name of sample
-                this._ctrlTrack[i].lblTrack.Text = i.ToString();
-                
+
+                // CR 1661564
+                // Display the track name after it has been loaded
+                if (globalSettings.osj.sampleLoaded[i] == true)
+                {
+                    this._ctrlTrack[i].lblTrack.Text = globalSettings.osj.sampleDetails_sampleName[i];
+                }
+                else
+                {
+                    // No sample loaded yet
+                    this._ctrlTrack[i].lblTrack.Text = i.ToString();
+                }
+
+
                 //this._ctrlTrack[i].
 
                 this.Controls.Add(this._ctrlTrack[i]);
@@ -206,6 +217,19 @@ namespace OpenSebJ
             {
                 tickOffset = 1;
             }
+            else
+            {
+                // CR 1661562 
+                // If the timer is not defined then reset the wave positions 
+                // when the reset button is pressed
+                for (int i = 0; i < 262; i++)
+                {
+                    if (globalSettings.osj.sampleLoaded[i])
+                    {
+                        dsInterface.aSound[i].SetCurrentPosition(0);
+                    }
+                }
+            }
             
             globalSettings.osj.TrackEditor_PlayTick = globalSettings.osj.TrackEditor_BaseTick - tickOffset;
 
@@ -263,8 +287,9 @@ namespace OpenSebJ
                 for (int i = 0; i < 262; i++)
                 {
                     if (globalSettings.osj.sampleLoaded[i])
+                    {
                         dsInterface.aSound[i].Stop();
-
+                    }
                 }
             }
         }

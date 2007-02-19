@@ -110,6 +110,10 @@ namespace OpenSebJ
                         globalSettings.osj.sampleLoaded[_sample] = true;
 
                         globalSettings.osj.sampleDetails_sampleName[_sample] = getSampleName(sampleLocation);
+
+                        // CR 1661564
+                        // Display the track name after it has been loaded
+                        lblTrack.Text = globalSettings.osj.sampleDetails_sampleName[_sample];
                     }
 
                 }
