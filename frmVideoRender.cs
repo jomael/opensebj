@@ -88,5 +88,10 @@ namespace OpenSebJ
                 this.SendToBack();
             }
         }
+
+        private void frmVideoRender_KeyDown(object sender, KeyEventArgs e)
+        {
+            dsInterface.playKey(e.KeyValue, e.Control);
+        }
     }
 }

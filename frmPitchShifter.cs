@@ -222,6 +222,11 @@ namespace OpenSebJ
             }
         }
 
+        private void frmPitchShifter_KeyDown(object sender, KeyEventArgs e)
+        {
+            dsInterface.playKey(e.KeyValue, e.Control);
+        }
+
 
     }// End of class
 }

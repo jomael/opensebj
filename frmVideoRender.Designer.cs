@@ -71,11 +71,13 @@ namespace OpenSebJ
             this.ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmVideoRender";
             this.Text = "View";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmVideoRender_KeyUp);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmVideoRender_KeyDown);
             this.Load += new System.EventHandler(this.frmVideoRender_Load);
             this.ResumeLayout(false);
 

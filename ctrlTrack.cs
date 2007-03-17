@@ -74,6 +74,13 @@ namespace OpenSebJ
                     }
                 }
             }
+
+            // Disable settings button until sample is loaded
+            // CR 1671525
+            if (globalSettings.osj.sampleLoaded[_sample] == false)
+            {
+                cmbSettings.Enabled = false;
+            }
         }
 
         /// <summary>
@@ -114,6 +121,10 @@ namespace OpenSebJ
                         // CR 1661564
                         // Display the track name after it has been loaded
                         lblTrack.Text = globalSettings.osj.sampleDetails_sampleName[_sample];
+
+                        //Enable the button after the sample has been loaded
+                        // CR 1671525
+                        cmbSettings.Enabled = true;
                     }
 
                 }

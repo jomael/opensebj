@@ -93,6 +93,11 @@ namespace OpenSebJ
         {
 
         }
+
+        private void frmRecord_KeyDown(object sender, KeyEventArgs e)
+        {
+            dsInterface.playKey(e.KeyValue, e.Control);
+        }
     
     } // End of class
 }

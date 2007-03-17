@@ -66,9 +66,11 @@ namespace OpenSebJ
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(814, 263);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "frmWaveScratch";
             this.Text = "Sample :: ";
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmWaveScratch_MouseMove);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmWaveScratch_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmWaveScratch_MouseDown);
             this.Load += new System.EventHandler(this.frmWavePlot_Load);
             this.ResumeLayout(false);

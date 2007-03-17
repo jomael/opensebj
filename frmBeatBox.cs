@@ -274,9 +274,11 @@ namespace OpenSebJ
             this.Controls.Add(this.cmbPlay);
             this.Controls.Add(this.bBoxTemplate);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "frmBeatBox";
             this.Text = "Beat Box";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmBeatBox_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmBeatBox_KeyDown);
             this.Load += new System.EventHandler(this.frmBeatBox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -886,6 +888,11 @@ namespace OpenSebJ
                 bBoxTemplate.Text = "Off";
             }
             //}
+        }
+
+        private void frmBeatBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            dsInterface.playKey(e.KeyValue, e.Control);
         }
 
 

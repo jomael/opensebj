@@ -65,8 +65,10 @@ namespace OpenSebJ
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 392);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "frmPitchShifter";
             this.Text = "Pitch Shifter Roll";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPitchShifter_KeyDown);
             this.Load += new System.EventHandler(this.frmPitchShifter_Load);
             this.ResumeLayout(false);
 

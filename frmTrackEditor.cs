@@ -119,32 +119,42 @@ namespace OpenSebJ
 
         private void playToolStripButton_Click(object sender, EventArgs e)
         {
-            if (timerDefined == true)
+            // Check that a sample has at least been loaded and an instance defined
+            // CR: 1671509
+            if (globalSettings.osj.TrackEditor_SampleInstance_InAction == 0)
             {
-                stateTimer.Dispose();
-                timerDefined = false;
+                System.Windows.Forms.MessageBox.Show("Please load a sample and set up an instances first");
             }
-
-            // Check if their are any samples at the begining position to play
-            for (int i = 0; i < globalSettings.osj.TrackEditor_SampleInstance_InAction; i++)
+            else
             {
-                if (globalSettings.osj.TrackEditor_SampleInstance_Location[i] == globalSettings.osj.TrackEditor_PlayTick)
+
+                if (timerDefined == true)
                 {
-                    if (globalSettings.osj.TrackEditor_SampleInstance_Enabled[i] == true)
+                    stateTimer.Dispose();
+                    timerDefined = false;
+                }
+
+                // Check if their are any samples at the begining position to play
+                for (int i = 0; i < globalSettings.osj.TrackEditor_SampleInstance_InAction; i++)
+                {
+                    if (globalSettings.osj.TrackEditor_SampleInstance_Location[i] == globalSettings.osj.TrackEditor_PlayTick)
                     {
-                        dsInterface.play(globalSettings.osj.TrackEditor_SampleInstance_Sample[i]);
+                        if (globalSettings.osj.TrackEditor_SampleInstance_Enabled[i] == true)
+                        {
+                            dsInterface.play(globalSettings.osj.TrackEditor_SampleInstance_Sample[i]);
+                        }
                     }
                 }
+                this.Refresh();
+
+                //txtTick.Text = (60 / int.Parse(txtBPM.Text)) * 1000
+
+                // Reset the doubleStop (so that if stop is pressed twice it stop playing the
+                // samples mid play)
+                doubleStop = false;
+
+                acurateTime();
             }
-            this.Refresh();
-
-            //txtTick.Text = (60 / int.Parse(txtBPM.Text)) * 1000
-
-            // Reset the doubleStop (so that if stop is pressed twice it stop playing the
-            // samples mid play)
-            doubleStop = false;
-
-            acurateTime();
         }
 
 

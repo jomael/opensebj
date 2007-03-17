@@ -483,5 +483,23 @@ namespace OpenSebJ
             saveExplorer.Activate();
         }
 
+        private void frmMainEditor_KeyDown(object sender, KeyEventArgs e)
+        {
+            dsInterface.playKey(e.KeyValue, e.Control);
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // If the filename is blank; it wasn't loaded and it hasn't been saved
+            if ((globalSettings.osjFileName == "") || (globalSettings.osjFileName == globalSettings.path + "NewComposition.osj"))
+            {
+                saveDialogPop();
+            }
+            else
+            {
+                osjSave(globalSettings.osjFileName);
+            }
+        }
+
     }
 }

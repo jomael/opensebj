@@ -186,6 +186,7 @@ namespace OpenSebJ
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.saveToolStripMenuItem.Text = "&Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
@@ -610,11 +611,13 @@ namespace OpenSebJ
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "frmMainEditor";
             this.Text = "OpenSebJ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.frmMainEditor_Activated);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMainEditor_KeyDown);
             this.Load += new System.EventHandler(this.frmMainEditor_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();

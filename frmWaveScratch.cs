@@ -242,5 +242,10 @@ namespace OpenSebJ
             redrawMarks(7);
         }
 
+        private void frmWaveScratch_KeyDown(object sender, KeyEventArgs e)
+        {
+            dsInterface.playKey(e.KeyValue, e.Control);
+        }
+
     }
 }

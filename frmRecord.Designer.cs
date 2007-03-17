@@ -136,8 +136,10 @@ namespace OpenSebJ
             this.ClientSize = new System.Drawing.Size(665, 86);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "frmRecord";
             this.Text = "Record";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmRecord_KeyDown);
             this.Load += new System.EventHandler(this.frmRecord_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
