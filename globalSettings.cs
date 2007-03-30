@@ -28,7 +28,7 @@ namespace OpenSebJ
     public static class globalSettings
     {
         // Storing the Global Variables here for convenience.
-        public static string releaseVersion = "0.3";
+        public static string releaseVersion = "0.4";
         public static string versionCheckAddress = "http://www.evolvingsoftware.com/version.php?version=";
 
         // Used for the lay down window. Needs to be available
