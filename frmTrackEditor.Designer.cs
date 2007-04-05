@@ -98,8 +98,9 @@ namespace OpenSebJ
             this.ControlsToolStrip.Location = new System.Drawing.Point(0, 0);
             this.ControlsToolStrip.Name = "ControlsToolStrip";
             this.ControlsToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.ControlsToolStrip.Size = new System.Drawing.Size(256, 25);
+            this.ControlsToolStrip.Size = new System.Drawing.Size(287, 25);
             this.ControlsToolStrip.TabIndex = 3;
+            this.ControlsToolStrip.TabStop = true;
             this.ControlsToolStrip.Text = "Controls";
             this.ControlsToolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ControlsToolStrip_ItemClicked);
             // 

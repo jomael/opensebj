@@ -196,7 +196,8 @@ namespace OpenSebJ
                     _positionNotification[i].Offset = (_notificationAt * i) + _notificationAt - 1;
 
                     // TO DO: this needs to be updated to the 'safe' one
-                    _positionNotification[i].EventNotifyHandle = _resetNotification.Handle;
+                    //_positionNotification[i].EventNotifyHandle = _resetNotification.Handle;
+                    _positionNotification[i].EventNotifyHandle = _resetNotification.SafeWaitHandle.DangerousGetHandle();
                 }
             }
             catch(Exception anException)

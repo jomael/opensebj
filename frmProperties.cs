@@ -360,6 +360,7 @@ namespace OpenSebJ
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(375, 25);
             this.toolStrip.TabIndex = 63;
+            this.toolStrip.TabStop = true;
             this.toolStrip.Text = "toolStrip1";
             // 
             // playToolStripButton
