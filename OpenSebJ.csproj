@@ -263,6 +263,7 @@
     </Compile>
     <Compile Include="sample.cs" />
     <Compile Include="OpenSebJSettings.cs" />
+    <Compile Include="Settings.cs" />
     <EmbeddedResource Include="ctrlTrack.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ctrlTrack.cs</DependentUpon>

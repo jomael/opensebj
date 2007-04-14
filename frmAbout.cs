@@ -32,6 +32,8 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Threading;
 
+using Microsoft.DirectX.DirectSound;
+
 namespace OpenSebJ
 {
 	/// <summary>
@@ -50,6 +52,9 @@ namespace OpenSebJ
 		string path;
         private Label lblVersion;
         private Button cmbDone;
+        private ComboBox cmbDevices;
+
+        private Guid[] directSoundDevices;
 
 		/// <summary>
 		/// Required designer variable.
@@ -105,6 +110,7 @@ namespace OpenSebJ
             this.AboutTimer = new System.Timers.Timer();
             this.lblVersion = new System.Windows.Forms.Label();
             this.cmbDone = new System.Windows.Forms.Button();
+            this.cmbDevices = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ghettoEditionLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AboutTimer)).BeginInit();
             this.SuspendLayout();
@@ -165,12 +171,21 @@ namespace OpenSebJ
             this.cmbDone.UseVisualStyleBackColor = false;
             this.cmbDone.Click += new System.EventHandler(this.cmbDone_Click);
             // 
+            // cmbDevices
+            // 
+            this.cmbDevices.FormattingEnabled = true;
+            this.cmbDevices.Location = new System.Drawing.Point(10, 436);
+            this.cmbDevices.Name = "cmbDevices";
+            this.cmbDevices.Size = new System.Drawing.Size(326, 21);
+            this.cmbDevices.TabIndex = 7;
+            // 
             // frmAbout
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(433, 469);
             this.ControlBox = false;
+            this.Controls.Add(this.cmbDevices);
             this.Controls.Add(this.cmbDone);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.lblAbout);
@@ -238,14 +253,34 @@ namespace OpenSebJ
             catch
             {
 
-            } 
+            }
+
+            // Audio device enumeration
+            AudioDeviceEnumeration();
 		
 		}
 
 
 		private void cmbDone_Click(object sender, System.EventArgs e)
 		{
-			testSound = null;
+            // Gets the GUID of the selected sound device
+            globalSettings.audioDevice = directSoundDevices[cmbDevices.SelectedIndex];
+            globalSettings.selectedAudioDevice = cmbDevices.SelectedIndex;
+
+            if (dsInterface.aSoundCard == null)
+            {
+                // Sets up the DX Audio Interface for the program
+                dsInterface.setupAudio(this);
+            }
+            else
+            {
+                dsInterface.changeAudioDevice();
+            }
+
+            
+
+            // Close it all down
+            testSound = null;
 			testCard = null;
 			AboutTimer = null;
 			this.Close();
@@ -311,8 +346,27 @@ namespace OpenSebJ
             System.Diagnostics.Process.Start("http://www.evolvingsoftware.com");
             this.TopMost = false;
         }
-			
-	    
+
+
+
+        public void AudioDeviceEnumeration()
+        {
+            Microsoft.DirectX.DirectSound.DevicesCollection devices = new Microsoft.DirectX.DirectSound.DevicesCollection();
+            
+            directSoundDevices = new Guid[devices.Count];
+            
+            // Gets the Guid and populates the associated descritption for each sound device
+            for (int i = 0; i < devices.Count; i++)
+            {
+                DeviceInformation devInfo = devices[i];
+                cmbDevices.Items.Add(devInfo.Description);
+                directSoundDevices[i] = devInfo.DriverGuid;
+            }
+
+            // Sets to the default value of 0 (Should be Primary) or the previously selected value if it was different
+            cmbDevices.SelectedIndex = globalSettings.selectedAudioDevice;
+            
+        }
 
 	}
 

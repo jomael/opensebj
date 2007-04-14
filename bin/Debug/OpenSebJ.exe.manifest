@@ -81,7 +81,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>wzV+fG0sql9HBAMNm63sfmPVsUw=</dsig:DigestValue>
+        <dsig:DigestValue>KvX/LyIFqmahpjEO0ouCAt7XgEg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -121,13 +121,13 @@
       <dsig:DigestValue>a8QR1GhsAaYwKkFydS6WfpQWS2o=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="OpenSebJ.exe.config" size="618">
+  <file name="OpenSebJ.exe.config" size="657">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>zFqnxoQEsqZ6TktPwD6YgMuZF2Q=</dsig:DigestValue>
+      <dsig:DigestValue>pP363xARB7LRs9HMeMasxpLQcjo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="openSebJ.jpg" size="14350">

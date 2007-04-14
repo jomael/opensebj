@@ -278,6 +278,9 @@ namespace OpenSebJ
 		static void Main() 
 		{
 		    //Application.Run(new frmOpenSebJ());
+
+            //OpenSebJ.globalSettings.selectedAudioDevice = OpenSebJ.Properties.Settings.Default.selectedAudioDevice;
+            
             Application.Run(new frmMainEditor());
 		}
 

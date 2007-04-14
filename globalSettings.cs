@@ -23,6 +23,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+using Microsoft.DirectX.DirectSound;
+
 namespace OpenSebJ
 {
     public static class globalSettings
@@ -30,6 +32,12 @@ namespace OpenSebJ
         // Storing the Global Variables here for convenience.
         public static string releaseVersion = "0.41";
         public static string versionCheckAddress = "http://www.evolvingsoftware.com/version.php?version=";
+
+        // Selected Audio Device
+        public static Guid audioDevice;
+
+        // Selected Audio Device - By enumeration order
+        public static int selectedAudioDevice = 0;
 
         // Used for the lay down window. Needs to be available
         // once the screen is closed..

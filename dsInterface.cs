@@ -77,10 +77,16 @@ namespace OpenSebJ
 			//
 		}
 
+        public static void changeAudioDevice()
+        {
+            aSoundCard = new Device(globalSettings.audioDevice); 
+        }
+
+
 		public static void setupAudio(System.Windows.Forms.Control callingForm)
 		{			
 			
-			aSoundCard = new Device();
+			aSoundCard = new Device(globalSettings.audioDevice);
 			aSoundCard.SetCooperativeLevel(callingForm, CooperativeLevel.Priority);
 			
 			aSound = new SecondaryBuffer[262];

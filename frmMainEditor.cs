@@ -256,7 +256,7 @@ namespace OpenSebJ
                 AboutThis.Activate();
 
                 // Sets up the DX Audio Interface for the program
-                dsInterface.setupAudio(this);
+                //dsInterface.setupAudio(this);
             }
         }
 
