@@ -36,9 +36,6 @@ namespace OpenSebJ
         // Selected Audio Device
         public static Guid audioDevice;
 
-        // Selected Audio Device - By enumeration order
-        public static int selectedAudioDevice = 0;
-
         // Used for the lay down window. Needs to be available
         // once the screen is closed..
         public static int inActionPlays = 0;
@@ -73,6 +70,9 @@ namespace OpenSebJ
 
         // All variables that are Serializable, stored in the osj instance of OpenSebJSettings
         public static OpenSebJSettings osj = new OpenSebJSettings();
+
+        // Used to store and retrive the prefered audio device
+        public static audioDeviceConfig aDC = new audioDeviceConfig();
 
         // Reference to the MDIForm - reference used to allow forms created out side of the main editor
         // form to still be docked in the MDI container

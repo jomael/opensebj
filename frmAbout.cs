@@ -34,6 +34,10 @@ using System.Threading;
 
 using Microsoft.DirectX.DirectSound;
 
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+
 namespace OpenSebJ
 {
 	/// <summary>
@@ -265,7 +269,10 @@ namespace OpenSebJ
 		{
             // Gets the GUID of the selected sound device
             globalSettings.audioDevice = directSoundDevices[cmbDevices.SelectedIndex];
-            globalSettings.selectedAudioDevice = cmbDevices.SelectedIndex;
+            //globalSettings.selectedAudioDevice = cmbDevices.SelectedIndex;
+
+            globalSettings.aDC.selectedAudioDevice = cmbDevices.SelectedIndex;
+            audioDeviceSave();
 
             if (dsInterface.aSoundCard == null)
             {
@@ -277,7 +284,7 @@ namespace OpenSebJ
                 dsInterface.changeAudioDevice();
             }
 
-            
+
 
             // Close it all down
             testSound = null;
@@ -363,9 +370,41 @@ namespace OpenSebJ
                 directSoundDevices[i] = devInfo.DriverGuid;
             }
 
+            // Setup the selected audio device, by enumerated value
+            globalSettings.aDC.selectedAudioDevice = 0;
+
+            try
+            {
+                // Load the audio device from the last session
+                audioDeviceLoad();
+
+            }catch
+            {
+                // Create the settings file if it doesn't exist and save with the default
+                audioDeviceSave();
+            }
+
             // Sets to the default value of 0 (Should be Primary) or the previously selected value if it was different
-            cmbDevices.SelectedIndex = globalSettings.selectedAudioDevice;
+            cmbDevices.SelectedIndex = globalSettings.aDC.selectedAudioDevice;
             
+        }
+
+        private void audioDeviceSave()
+        {
+            // Binary Serializes
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(globalSettings.path + "audioDevice.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, globalSettings.aDC);
+            stream.Close();
+        }
+
+        private void audioDeviceLoad()
+        {
+            // Reserializes
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(globalSettings.path + "audioDevice.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            globalSettings.aDC = (audioDeviceConfig)formatter.Deserialize(stream);
+            stream.Close();
         }
 
 	}
