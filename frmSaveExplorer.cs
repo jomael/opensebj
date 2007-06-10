@@ -47,6 +47,9 @@ namespace OpenSebJ
 
             if (folderBrowser.SelectedPath != null)
             {
+
+                //Extracts Videos
+
                 string videoName = folderBrowser.SelectedPath + "\\Videos";
 
                 System.Windows.Forms.MessageBox.Show(videoName);
@@ -54,9 +57,6 @@ namespace OpenSebJ
                 System.IO.Directory.CreateDirectory(videoName);
 
                 
-
-
-
                 for (int i = 0; i < 255; i++)
                 {
                     //if (dsInterface.videoLocations[i] != null)
@@ -90,10 +90,28 @@ namespace OpenSebJ
                 }
 
 
+                //Extract Audio Samples
 
+                string audioName = folderBrowser.SelectedPath + "\\AudioSamples";
 
+                System.Windows.Forms.MessageBox.Show(audioName);
 
+                System.IO.Directory.CreateDirectory(audioName);
 
+                for (int i = 0; i < 262; i++)
+                {
+                    if (globalSettings.osj.sampleLoaded[i] == true)
+                    {
+                        // Setup the blank byte array
+                        byte[] _bytes;
+
+                        // Copy the memory stream to the temporary byte array
+                        _bytes = globalSettings.osj.sample_MemoryStream[i].ToArray();
+
+                        // Writes out the byte array to the predefined file location
+                        System.IO.File.WriteAllBytes(audioName + "\\" + i + ".wav", _bytes);
+                    }
+                }
 
 
 

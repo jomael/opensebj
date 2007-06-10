@@ -523,7 +523,6 @@ namespace OpenSebJ
             this.oSJSaveExplorerToolStripMenuItem.Name = "oSJSaveExplorerToolStripMenuItem";
             this.oSJSaveExplorerToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.oSJSaveExplorerToolStripMenuItem.Text = "OSJ Save Explorer";
-            this.oSJSaveExplorerToolStripMenuItem.Visible = false;
             this.oSJSaveExplorerToolStripMenuItem.Click += new System.EventHandler(this.oSJSaveExplorerToolStripMenuItem_Click);
             // 
             // toolStrip
