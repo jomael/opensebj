@@ -78,5 +78,6 @@ namespace OpenSebJ
         // form to still be docked in the MDI container
         public static System.Windows.Forms.Form MDIForm = null;
 
-    }
+
+    }// globalSettings
 }
