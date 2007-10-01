@@ -79,5 +79,5 @@ namespace OpenSebJ
         public static System.Windows.Forms.Form MDIForm = null;
 
 
-    }// globalSettings
+    }
 }
