@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual C# Express 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioEngine", "Sequencer\AudioEngine.csproj", "{0B10BE6E-F5DD-404A-9067-C233C1E75553}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SequencerTest", "SequencerTest\SequencerTest.csproj", "{F1D7855C-3188-4CB2-98E3-D2556905EA92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B10BE6E-F5DD-404A-9067-C233C1E75553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B10BE6E-F5DD-404A-9067-C233C1E75553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B10BE6E-F5DD-404A-9067-C233C1E75553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B10BE6E-F5DD-404A-9067-C233C1E75553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D7855C-3188-4CB2-98E3-D2556905EA92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D7855C-3188-4CB2-98E3-D2556905EA92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D7855C-3188-4CB2-98E3-D2556905EA92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D7855C-3188-4CB2-98E3-D2556905EA92}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

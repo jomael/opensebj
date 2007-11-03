@@ -1,0 +1,7 @@
+bin\Release\Sequencer.dll
+bin\Release\Sequencer.pdb
+bin\Release\PrecisionTimer.dll
+bin\Release\PrecisionTimer.pdb
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\Sequencer.dll
+obj\Release\Sequencer.pdb

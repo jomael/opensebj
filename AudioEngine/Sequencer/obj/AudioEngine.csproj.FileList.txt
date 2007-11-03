@@ -1,0 +1,10 @@
+obj\Release\ResolveAssemblyReference.cache
+bin\Release\Sequencer.dll
+bin\Release\Sequencer.pdb
+obj\Release\Sequencer.dll
+obj\Release\Sequencer.pdb
+bin\Debug\Sequencer.dll
+bin\Debug\Sequencer.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Sequencer.dll
+obj\Debug\Sequencer.pdb

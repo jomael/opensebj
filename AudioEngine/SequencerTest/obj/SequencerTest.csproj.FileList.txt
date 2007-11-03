@@ -1,0 +1,14 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Release\ResolveAssemblyReference.cache
+bin\Debug\SequencerTest.exe
+bin\Debug\SequencerTest.pdb
+bin\Debug\Sequencer.dll
+bin\Debug\Sequencer.pdb
+obj\Debug\SequencerTest.exe
+obj\Debug\SequencerTest.pdb
+bin\Release\SequencerTest.exe
+bin\Release\SequencerTest.pdb
+bin\Release\Sequencer.dll
+bin\Release\Sequencer.pdb
+obj\Release\SequencerTest.exe
+obj\Release\SequencerTest.pdb
