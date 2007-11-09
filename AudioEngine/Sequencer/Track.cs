@@ -87,6 +87,12 @@ namespace AudioEngine
 
         #region Events
 
+
+        /// <summary>
+        /// Add an event to the Track
+        /// </summary>
+        /// <param name="timeCode">The TimeCode for the position of the Event</param>
+        /// <returns></returns>
         public int AddEvent(Int64 timeCode)
         {
             int eventNumber = eventCount++;

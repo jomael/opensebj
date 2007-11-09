@@ -43,7 +43,6 @@ namespace AudioEngine
             get { return _ToTimeCode; }
             set { _ToTimeCode = value; }
         }
-
 	
     }
 }

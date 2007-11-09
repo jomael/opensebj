@@ -74,13 +74,21 @@ namespace AudioEngine
         // Length of time for the instance to play for
         int _duration = 0;
         
-
+        /// <summary>
+        /// Creation of the Event
+        /// </summary>
+        /// <param name="TimeCode">The TimeCode for the Event position</param>
         public Events(Int64 TimeCode)
         {
             _timeCode = TimeCode;
             _active = true;
         }
 
+        /// <summary>
+        /// Creation of the Event
+        /// </summary>
+        /// <param name="TimeCode">The TimeCode for the Event position</param>
+        /// <param name="Instrument">The Instrument the Event represents</param>
         public Events(Int64 TimeCode, int Instrument)
         {
             _timeCode = TimeCode;
