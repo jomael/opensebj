@@ -85,7 +85,6 @@ namespace OpenSebJ
             this.trackStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beatPadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drumMachineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.videoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -315,7 +314,7 @@ namespace OpenSebJ
             this.toolBarToolStripMenuItem.CheckOnClick = true;
             this.toolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolBarToolStripMenuItem.Name = "toolBarToolStripMenuItem";
-            this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.toolBarToolStripMenuItem.Text = "&Toolbar";
             this.toolBarToolStripMenuItem.Click += new System.EventHandler(this.ToolBarToolStripMenuItem_Click);
             // 
@@ -325,7 +324,7 @@ namespace OpenSebJ
             this.statusBarToolStripMenuItem.CheckOnClick = true;
             this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.statusBarToolStripMenuItem.Text = "&Status Bar";
             this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.StatusBarToolStripMenuItem_Click);
             // 
@@ -335,7 +334,6 @@ namespace OpenSebJ
             this.trackStripMenuItem,
             this.beatPadToolStripMenuItem,
             this.drumMachineToolStripMenuItem,
-            this.videoToolStripMenuItem,
             this.recordToolStripMenuItem,
             this.toolStripSeparator11,
             this.optionsToolStripMenuItem});
@@ -363,13 +361,6 @@ namespace OpenSebJ
             this.drumMachineToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.drumMachineToolStripMenuItem.Text = "Drum Machine";
             this.drumMachineToolStripMenuItem.Click += new System.EventHandler(this.drumMachineToolStripMenuItem_Click);
-            // 
-            // videoToolStripMenuItem
-            // 
-            this.videoToolStripMenuItem.Name = "videoToolStripMenuItem";
-            this.videoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.videoToolStripMenuItem.Text = "Video";
-            this.videoToolStripMenuItem.Click += new System.EventHandler(this.videoToolStripMenuItem_Click);
             // 
             // recordToolStripMenuItem
             // 
@@ -516,7 +507,6 @@ namespace OpenSebJ
             this.dXSoundToolStripMenuItem.Name = "dXSoundToolStripMenuItem";
             this.dXSoundToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.dXSoundToolStripMenuItem.Text = "DX Sound";
-            this.dXSoundToolStripMenuItem.Click += new System.EventHandler(this.dXSoundToolStripMenuItem_Click);
             // 
             // oSJSaveExplorerToolStripMenuItem
             // 
@@ -615,9 +605,9 @@ namespace OpenSebJ
             this.Name = "frmMainEditor";
             this.Text = "OpenSebJ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMainEditor_Load);
             this.Activated += new System.EventHandler(this.frmMainEditor_Activated);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMainEditor_KeyDown);
-            this.Load += new System.EventHandler(this.frmMainEditor_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.toolStrip.ResumeLayout(false);
@@ -681,7 +671,6 @@ namespace OpenSebJ
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
         private System.Windows.Forms.ToolStripMenuItem recordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dXSoundToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem videoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem drumMachineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findAudioSamplesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;

@@ -23,14 +23,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using Microsoft.DirectX.DirectSound;
+//using Microsoft.DirectX.DirectSound;
 
 namespace OpenSebJ
 {
     public static class globalSettings
     {
         // Storing the Global Variables here for convenience.
-        public static string releaseVersion = "0.41";
+        public static string releaseVersion = "0.42";
         public static string versionCheckAddress = "http://www.evolvingsoftware.com/version.php?version=";
 
         // Selected Audio Device
@@ -72,7 +72,7 @@ namespace OpenSebJ
         public static OpenSebJSettings osj = new OpenSebJSettings();
 
         // Used to store and retrive the prefered audio device
-        public static audioDeviceConfig aDC = new audioDeviceConfig();
+        //public static audioDeviceConfig aDC = new audioDeviceConfig();
 
         // Reference to the MDIForm - reference used to allow forms created out side of the main editor
         // form to still be docked in the MDI container

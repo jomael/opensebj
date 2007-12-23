@@ -71,10 +71,11 @@ namespace OpenSebJ
                 this.trkFreq[i].TickStyle = System.Windows.Forms.TickStyle.None;
                 //this.trkFreq[i].Value = 22000;
 
+                // TODO: SG - More frequency stuff to do
+                //this.trkFreq[i].Minimum = 4000;
+                //this.trkFreq[i].Maximum = dsInterface.getFrequency(_sample) + 3000;
+                //this.trkFreq[i].Value = dsInterface.getCurrentFrequency(_sample);
 
-                this.trkFreq[i].Minimum = 4000;
-                this.trkFreq[i].Maximum = dsInterface.getFrequency(_sample) + 3000;
-                this.trkFreq[i].Value = dsInterface.getCurrentFrequency(_sample);
 
                 // set default
                 //dsInterface.setFreqRoll(_sample, i, trkFreq[i].Value);
@@ -131,24 +132,25 @@ namespace OpenSebJ
             // Setup to pre-loaded / pre-configured values - previously this was being stored but not visible when reopened
             for (int i = 0; i < 8; i++)
             {
+                //TODO : SG - More freq stuff
 
-                if (dsInterface.aSample[_sample].getFreqByPos(i) > -1)
-                {
-                    _enabled[i] = true;
-                    cmbEnable[i].Checked = true;
-                    cmbEnable[i].Text = "Enabled";
-                    trkFreq[i].Visible = true;
-                    trkFreq[i].Value = dsInterface.aSample[_sample].getFreqByPos(i);
+                //if (dsInterface.aSample[_sample].getFreqByPos(i) > -1)
+                //{
+                //    _enabled[i] = true;
+                //    cmbEnable[i].Checked = true;
+                //    cmbEnable[i].Text = "Enabled";
+                //    trkFreq[i].Visible = true;
+                //    trkFreq[i].Value = dsInterface.aSample[_sample].getFreqByPos(i);
 
-                    //System.Windows.Forms.MessageBox.Show(dsInterface.aSample[_sample].getFreqByPos(i).ToString());
-                }
-                else
-                {
-                    _enabled[i] = false;
-                    cmbEnable[i].Checked = false;
-                    cmbEnable[i].Text = "Enable";
-                    trkFreq[i].Visible = false;
-                }
+                //    //System.Windows.Forms.MessageBox.Show(dsInterface.aSample[_sample].getFreqByPos(i).ToString());
+                //}
+                //else
+                //{
+                //    _enabled[i] = false;
+                //    cmbEnable[i].Checked = false;
+                //    cmbEnable[i].Text = "Enable";
+                //    trkFreq[i].Visible = false;
+                //}
             }
             
 
@@ -162,7 +164,8 @@ namespace OpenSebJ
             {
                 if (sender.Equals(trkFreq[i]))
                 {
-                    dsInterface.setFreqRoll(_sample, i, trkFreq[i].Value);
+                    //TODO: sg freq roll
+                    //dsInterface.setFreqRoll(_sample, i, trkFreq[i].Value);
                 }
             }
         }
@@ -173,7 +176,8 @@ namespace OpenSebJ
             {
                 if (sender.Equals(trkFreq[i]))
                 {
-                    dsInterface.setFreqRoll(_sample, i, trkFreq[i].Value);
+                    //TODO: sg freq roll
+                    //dsInterface.setFreqRoll(_sample, i, trkFreq[i].Value);
                 }
             }
         }
@@ -208,15 +212,17 @@ namespace OpenSebJ
                         _enabled[i] = true;
                         cmbEnable[i].Text = "Enabled";
                         trkFreq[i].Visible = true;
-                        dsInterface.setFreqRollEnabled(_sample,i,true);
-                        dsInterface.setFreqRoll(_sample, i, trkFreq[i].Value);
+                        //TODO: sg freq roll
+                        //dsInterface.setFreqRollEnabled(_sample,i,true);
+                        //dsInterface.setFreqRoll(_sample, i, trkFreq[i].Value);
                     }
                     else
                     {
                         _enabled[i] = false;
                         cmbEnable[i].Text = "Enable";
                         trkFreq[i].Visible = false;
-                        dsInterface.setFreqRollEnabled(_sample, i,false);
+                        //TODO: sg freq roll
+                        //dsInterface.setFreqRollEnabled(_sample, i,false);
                     }
                 }
             }

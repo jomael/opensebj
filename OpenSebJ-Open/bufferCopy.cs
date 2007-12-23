@@ -20,7 +20,7 @@
 */
 
 using System;
-using Microsoft.DirectX.DirectSound;
+//using Microsoft.DirectX.DirectSound;
 using System.IO;
 using System.Diagnostics;
 
@@ -44,9 +44,7 @@ namespace OpenSebJ
 	
 		public bufferCopy()
 		{
-			//
-			// TODO: Add constructor logic here
-			//
+
 		}
 
 		public bool CopySample(int sampleToCopy, int slotDesignation)

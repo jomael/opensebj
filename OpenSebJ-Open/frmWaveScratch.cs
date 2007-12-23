@@ -203,11 +203,15 @@ namespace OpenSebJ
         {
             redrawMarks(e.X);
 
-            int _temp = dsInterface.aSound[_Sample].Caps.BufferBytes / 800;
+            //TODO: SG - Work out how to play from current position
+            
+            //int _temp = dsInterface.aSound[_Sample].Caps.BufferBytes / 800;
 
             try
             {
-                dsInterface.aSound[_Sample].SetCurrentPosition((e.X - 7) * _temp);
+                //TODO: SG - Work out how to play from current position
+                
+                //dsInterface.aSound[_Sample].SetCurrentPosition((e.X - 7) * _temp);
             }
             catch
             {
@@ -219,12 +223,14 @@ namespace OpenSebJ
         {
             if (e.Button == MouseButtons.Left)
             {
-                dsInterface.playFromPosition(_Sample);
+                //dsInterface.playFromPosition(_Sample);
+                sdlInterface.playFromPosition(_Sample);
             }
             else
             {
 
-                dsInterface.stop(_Sample);
+                //dsInterface.stop(_Sample);
+                sdlInterface.stop(_Sample);
             }
         }
 

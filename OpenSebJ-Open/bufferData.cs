@@ -20,7 +20,7 @@
 */
 
 using System;
-using Microsoft.DirectX.DirectSound;
+//using Microsoft.DirectX.DirectSound;
 using System.IO;
 using System.Diagnostics;
 

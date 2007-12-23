@@ -193,7 +193,8 @@ namespace OpenSebJ
 			{
 				if (sender.Equals(cmbSample[i]))
 				{
-					dsInterface.play(i + beatPadScroll.Value * 4);
+					//dsInterface.play(i + beatPadScroll.Value * 4);
+                    sdlInterface.play(i + beatPadScroll.Value * 4);
 				}
 
 			}
@@ -342,9 +343,9 @@ namespace OpenSebJ
             //tape.Visible = true;
             //tape.Activate();
 
-            frmWaveScratch wavePlot = new frmWaveScratch(sampleMenu);
-            wavePlot.Visible = true;
-            wavePlot.Activate();
+            //frmWaveScratch wavePlot = new frmWaveScratch(sampleMenu);
+            //wavePlot.Visible = true;
+            //wavePlot.Activate();
 
             clearPopUp();
         }

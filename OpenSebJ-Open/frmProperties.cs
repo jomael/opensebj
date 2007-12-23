@@ -170,7 +170,7 @@ namespace OpenSebJ
             this.trkPan.Maximum = 6000;
             this.trkPan.Minimum = -6000;
             this.trkPan.Name = "trkPan";
-            this.trkPan.Size = new System.Drawing.Size(376, 42);
+            this.trkPan.Size = new System.Drawing.Size(376, 45);
             this.trkPan.TabIndex = 4;
             this.trkPan.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trkPan.ValueChanged += new System.EventHandler(this.trkPan_ValueChanged);
@@ -178,13 +178,13 @@ namespace OpenSebJ
             // trkVolume
             // 
             this.trkVolume.Location = new System.Drawing.Point(179, 98);
-            this.trkVolume.Maximum = 0;
-            this.trkVolume.Minimum = -6000;
+            this.trkVolume.Maximum = 128;
             this.trkVolume.Name = "trkVolume";
             this.trkVolume.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trkVolume.Size = new System.Drawing.Size(42, 216);
+            this.trkVolume.Size = new System.Drawing.Size(45, 216);
             this.trkVolume.TabIndex = 5;
             this.trkVolume.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trkVolume.Value = 128;
             this.trkVolume.ValueChanged += new System.EventHandler(this.trkVolume_ValueChanged);
             // 
             // lblL
@@ -328,7 +328,7 @@ namespace OpenSebJ
             this.trkFreq.Location = new System.Drawing.Point(0, 331);
             this.trkFreq.Maximum = 44000;
             this.trkFreq.Name = "trkFreq";
-            this.trkFreq.Size = new System.Drawing.Size(377, 42);
+            this.trkFreq.Size = new System.Drawing.Size(377, 45);
             this.trkFreq.TabIndex = 53;
             this.trkFreq.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trkFreq.Value = 22000;
@@ -446,7 +446,6 @@ namespace OpenSebJ
             this.setVideoToolStripButton.Name = "setVideoToolStripButton";
             this.setVideoToolStripButton.Size = new System.Drawing.Size(56, 22);
             this.setVideoToolStripButton.Text = "Set Video";
-            this.setVideoToolStripButton.Click += new System.EventHandler(this.setVideoToolStripButton_Click);
             // 
             // frmProperties
             // 
@@ -478,8 +477,8 @@ namespace OpenSebJ
             this.KeyPreview = true;
             this.Name = "frmProperties";
             this.Text = "Properties";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmProperties_KeyDown);
             this.Load += new System.EventHandler(this.frmProperties_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmProperties_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.trkPan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkVolume)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkFreq)).EndInit();
@@ -512,7 +511,8 @@ namespace OpenSebJ
 
                 txtLocation.Text = globalSettings.osj.sampleDetails_sampleName[sample];
 
-                if (dsInterface.loopSample[sample] == true)
+                //if (dsInterface.loopSample[sample] == true)
+                if (sdlInterface.loopSample[sample] == true)
                 {
                     chkLoop.Checked = true;
                 }
@@ -522,22 +522,23 @@ namespace OpenSebJ
                 }
 
 
-                if (dsInterface.reverseSample[sample] == true)
-                {
-                    chkReverse.Checked = true;
-                }
-                else
-                {
-                    chkReverse.Checked = false;
-                }
+                //if (dsInterface.reverseSample[sample] == true)
+                //{
+                //    chkReverse.Checked = true;
+                //}
+                //else
+                //{
+                //    chkReverse.Checked = false;
+                //}
 
-                trkPan.Value = dsInterface.getPan(sample);
-                trkVolume.Value = dsInterface.getVolume(sample);
+                //trkPan.Value = dsInterface.getPan(sample);
+                //trkVolume.Value = dsInterface.getVolume(sample);
+                trkVolume.Value = sdlInterface.getVolume(sample);
 
-                lblChannels.Text = lblChannels.Text + dsInterface.getChannels(sample);
-                lblBitDepth.Text = lblBitDepth.Text + dsInterface.getBitsPerSample(sample);
-                lblLength.Text = lblLength.Text + dsInterface.getLength(sample);
-                lblFrequency.Text = lblFrequency.Text + dsInterface.getFrequency(sample);
+                //lblChannels.Text = lblChannels.Text + dsInterface.getChannels(sample);
+                //lblBitDepth.Text = lblBitDepth.Text + dsInterface.getBitsPerSample(sample);
+                //lblLength.Text = lblLength.Text + dsInterface.getLength(sample);
+                //lblFrequency.Text = lblFrequency.Text + dsInterface.getFrequency(sample);
 
                 // Setup the trkFreq
                 try
@@ -550,9 +551,10 @@ namespace OpenSebJ
 
                     // v0.05 changed to make sure the highest value is still playable.
                     // Seems to only actually handle a frequency value of 3000 more.
-                    //trkFreq.Maximum = dsInterface.getFrequency(sample) * 2 - 4000;
-                    trkFreq.Maximum = dsInterface.getFrequency(sample) + 3000;
-                    trkFreq.Value = dsInterface.getCurrentFrequency(sample);
+                    
+                    //TODO: SG - Add freq stuff
+                    //trkFreq.Maximum = dsInterface.getFrequency(sample) + 3000;
+                    //trkFreq.Value = dsInterface.getCurrentFrequency(sample);
                 }
                 catch { }
 
@@ -561,36 +563,44 @@ namespace OpenSebJ
 
 		private void chkLoop_CheckedChanged(object sender, System.EventArgs e)
 		{
-			if (chkLoop.Checked == true)
-			{
-				dsInterface.loopSample[sample] = true;
-
-                int pos = 0;
-                int writePos = 0;
-
-                if (dsInterface.aSound[sample].Status.Playing == true)
-                {
-                    dsInterface.aSound[sample].GetCurrentPosition(out pos, out writePos);
-                    dsInterface.aSound[sample].SetCurrentPosition(pos);
-                    dsInterface.playFromPosition(sample);
-                }
+            sdlInterface.loopSample[sample] = true;
+            
 
 
-			}
-			else
-			{
-                dsInterface.loopSample[sample] = false;
+            //TODO: SG - add check for playing and add stop/start logic in
+
+
+            //if (chkLoop.Checked == true)
+            //{
+            //    sdlInterface.loopSample[sample] = true;
+
+            //    int pos = 0;
+            //    int writePos = 0;
+
+            //    if (sdlInterface.aSound[sample].Status.Playing == true)
+            //    {
+            //        sdlInterface.aSound[sample].GetCurrentPosition(out pos, out writePos);
+            //        sdlInterface.aSound[sample].SetCurrentPosition(pos);
+            //        sdlInterface.playFromPosition(sample);
+            //    }
+
+
+
+            //}
+            //else
+            //{
+            //    dsInterface.loopSample[sample] = false;
 				
-                int pos = 0;
-                int writePos = 0;
+            //    int pos = 0;
+            //    int writePos = 0;
 
-                if (dsInterface.aSound[sample].Status.Playing == true)
-                {
-                    dsInterface.aSound[sample].GetCurrentPosition(out pos, out writePos);
-                    dsInterface.aSound[sample].SetCurrentPosition(pos);
-                    dsInterface.playFromPosition(sample);
-                }
-            }
+            //    if (dsInterface.aSound[sample].Status.Playing == true)
+            //    {
+            //        dsInterface.aSound[sample].GetCurrentPosition(out pos, out writePos);
+            //        dsInterface.aSound[sample].SetCurrentPosition(pos);
+            //        dsInterface.playFromPosition(sample);
+            //    }
+            //}
 		}
 
 		private void picDone_Click(object sender, System.EventArgs e)
@@ -600,12 +610,16 @@ namespace OpenSebJ
 
 		private void trkVolume_ValueChanged(object sender, System.EventArgs e)
 		{
-			dsInterface.setVolume(sample,trkVolume.Value);
+            sdlInterface.setVolume(sample, trkVolume.Value);
+
+            //dsInterface.setVolume(sample,trkVolume.Value);
 		}
 
 		private void trkPan_ValueChanged(object sender, System.EventArgs e)
 		{
-			dsInterface.setPan(sample,trkPan.Value);
+            //TODO: SG - Work out how to set pan
+            
+            //dsInterface.setPan(sample,trkPan.Value);
 		}
 
 		private void chkReverse_CheckedChanged(object sender, System.EventArgs e)
@@ -632,22 +646,27 @@ namespace OpenSebJ
 		{
 			if (chkReverse.Checked == true)
 			{
-				dsInterface.reverseSample[sample] = true;
+				//dsInterface.reverseSample[sample] = true;
+                sdlInterface.reverseSample[sample] = true;
 			}
 			else
 			{
-				dsInterface.reverseSample[sample] = false;
-			}
+				//dsInterface.reverseSample[sample] = false;
+                sdlInterface.reverseSample[sample] = false;
+            }
 
-			bufferReverse bR = new bufferReverse();
-			bR.reverseSample(sample);
+            //TODO: sg - add buffer reverse
+            //bufferReverse bR = new bufferReverse();
+            //bR.reverseSample(sample);
 		}
 
 		private void trkFreq_ValueChanged(object sender, System.EventArgs e)
 		{
-			dsInterface.setFrequency(sample,trkFreq.Value);
-			lblLength.Text = "Seconds : " + dsInterface.getLength(sample);
-			lblFrequency.Text = "Frequency : " + dsInterface.getCurrentFrequency(sample);
+            //TODO: Setup frequency stuff
+
+            //dsInterface.setFrequency(sample,trkFreq.Value);
+            //lblLength.Text = "Seconds : " + dsInterface.getLength(sample);
+            //lblFrequency.Text = "Frequency : " + dsInterface.getCurrentFrequency(sample);
 		}
 
 		private void frmProperties_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -726,12 +745,18 @@ namespace OpenSebJ
 
         private void playToolStripButton_Click(object sender, EventArgs e)
         {
-            dsInterface.play(sample);
+            //dsInterface.play(sample);
+
+            sdlInterface.play(sample);
+            
         }
 
         private void stopToolStripButton_Click(object sender, EventArgs e)
         {
-            dsInterface.stop(sample);
+            //dsInterface.stop(sample);
+
+            sdlInterface.stop(sample);
+
         }
 
         private void viewToolStripButton_Click(object sender, EventArgs e)
@@ -742,13 +767,14 @@ namespace OpenSebJ
             {
                 // Seems to have an issue when closing another MDI window - if the scratch window is launched 
                 // as an MDI child
-                frmWaveScratch _wavePlot = new frmWaveScratch(_sample);
-                _wavePlot.MdiParent = globalSettings.MDIForm;
-                _wavePlot.Show();
+                
+                //frmWaveScratch _wavePlot = new frmWaveScratch(_sample);
+                //_wavePlot.MdiParent = globalSettings.MDIForm;
+                //_wavePlot.Show();
 
-                //frmWaveScratch wavePlot = new frmWaveScratch(sample);
-                //wavePlot.Visible = true;
-                //wavePlot.Activate();
+                ////frmWaveScratch wavePlot = new frmWaveScratch(sample);
+                ////wavePlot.Visible = true;
+                ////wavePlot.Activate();
 
             }
             else
@@ -781,12 +807,12 @@ namespace OpenSebJ
             keySet.Activate();    
         }
 
-        private void setVideoToolStripButton_Click(object sender, EventArgs e)
-        {
-            frmAddGraphics AddGraphics = new frmAddGraphics(sample);
-            AddGraphics.Visible = true;
-            AddGraphics.Activate();
-        }
+        //private void setVideoToolStripButton_Click(object sender, EventArgs e)
+        //{
+        //    frmAddGraphics AddGraphics = new frmAddGraphics(sample);
+        //    AddGraphics.Visible = true;
+        //    AddGraphics.Activate();
+        //}
 
 
 	}

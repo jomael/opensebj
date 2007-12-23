@@ -1,7 +1,7 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{76C0FB36-D32B-478E-88A9-C54F8BC15D66}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -27,11 +27,13 @@
     </UpgradeBackupLocation>
     <ManifestCertificateThumbprint>4B69A506E4BF687E439E7A5C7D37DB7D63A6AA32</ManifestCertificateThumbprint>
     <ManifestKeyFile>OpenSebJ_TemporaryKey.pfx</ManifestKeyFile>
-    <GenerateManifests>true</GenerateManifests>
-    <SignManifests>true</SignManifests>
+    <GenerateManifests>false</GenerateManifests>
+    <SignManifests>false</SignManifests>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetZone>LocalIntranet</TargetZone>
     <SignAssembly>false</SignAssembly>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <PublishUrl>.\publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -42,7 +44,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>0.4.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -92,19 +96,30 @@
     <ErrorReport>prompt</ErrorReport>
     <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>x86</PlatformTarget>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DirectShowLib-2005, Version=1.4.0.0, Culture=neutral, PublicKeyToken=67e7b740cdfc2d3f, processorArchitecture=MSIL">
+    <Reference Include="SdlDotNet, Version=6.0.0.0, Culture=neutral, PublicKeyToken=26ad4f7e10c61408, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\DirectShowLib-2005.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <HintPath>..\..\..\..\WINDOWS\Microsoft.NET\Managed DirectX\v9.03.91\Microsoft.DirectX.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.DirectX.Direct3D, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="Microsoft.DirectX.Direct3DX, Version=1.0.2911.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="Microsoft.DirectX.DirectSound, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependencies\SdlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>
@@ -147,38 +162,34 @@
     <Content Include="opensebj.wmv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SDL.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SdlDotNet.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SdlDotNet.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SDL_gfx.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SDL_mixer.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Tao.Sdl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="wood100x100.jpg" />
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="beatBox.cs" />
-    <Compile Include="bufferCopy.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="bufferData.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="bufferFast.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="bufferGraph.cs" />
-    <Compile Include="bufferRecord.cs" />
-    <Compile Include="bufferReverse.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="ctrlTrack.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ctrlTrack.Designer.cs">
       <DependentUpon>ctrlTrack.cs</DependentUpon>
-    </Compile>
-    <Compile Include="dsAllocator.cs" />
-    <Compile Include="eRender.cs" />
-    <Compile Include="frmAddGraphics.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAddGraphics.Designer.cs">
-      <DependentUpon>frmAddGraphics.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMainEditor.cs">
       <SubType>Form</SubType>
@@ -198,18 +209,6 @@
     <Compile Include="frmTrackEditor.Designer.cs">
       <DependentUpon>frmTrackEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVideoRender.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmVideoRender.Designer.cs">
-      <DependentUpon>frmVideoRender.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmWaveScratch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWaveScratch.Designer.cs">
-      <DependentUpon>frmWaveScratch.cs</DependentUpon>
-    </Compile>
     <Compile Include="dsInterface.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -220,9 +219,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmBeatPad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDxDeviceInfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmKey.cs">
@@ -237,21 +233,11 @@
     <Compile Include="frmProperties.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRecord.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRecord.Designer.cs">
-      <DependentUpon>frmRecord.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmScratch.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="globalSettings.cs" />
     <Compile Include="httpFunctions.cs" />
     <Compile Include="OpenSebJ.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="audioDeviceConfig.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -264,14 +250,11 @@
     </Compile>
     <Compile Include="sample.cs" />
     <Compile Include="OpenSebJSettings.cs" />
+    <Compile Include="sdlInterface.cs" />
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="ctrlTrack.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ctrlTrack.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAddGraphics.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmAddGraphics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainEditor.resx">
       <SubType>Designer</SubType>
@@ -284,14 +267,6 @@
     <EmbeddedResource Include="frmTrackEditor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmTrackEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmVideoRender.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmVideoRender.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmWaveScratch.resx">
-      <DependentUpon>frmWaveScratch.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="done.jpg" />
     <EmbeddedResource Include="frmAbout.resx">
@@ -306,10 +281,6 @@
       <DependentUpon>frmBeatPad.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDxDeviceInfo.resx">
-      <DependentUpon>frmDxDeviceInfo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmKey.resx">
       <DependentUpon>frmKey.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -320,14 +291,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProperties.resx">
       <DependentUpon>frmProperties.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmRecord.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmRecord.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmScratch.resx">
-      <DependentUpon>frmScratch.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="OpenSebJ.resx">
@@ -344,29 +307,21 @@
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
       <Visible>False</Visible>
-      <ProductName>.NET Framework 2.0</ProductName>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
       <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <PublishFile Include="Microsoft.DirectX">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="Microsoft.DirectX.DirectSound">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

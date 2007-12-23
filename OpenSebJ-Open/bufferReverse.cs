@@ -21,7 +21,7 @@
 
 
 using System;
-using Microsoft.DirectX.DirectSound;
+//using Microsoft.DirectX.DirectSound;
 using System.IO;
 using System.Diagnostics;
 
@@ -43,11 +43,7 @@ namespace OpenSebJ
 	
 		public bufferReverse()
 		{
-			//
-			// TODO: Add constructor logic here
-			//
-		
-			
+				
 		}
 
 		public bool reverseSample(int sampleToReverse)

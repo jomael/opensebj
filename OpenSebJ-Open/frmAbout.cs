@@ -32,7 +32,7 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Threading;
 
-using Microsoft.DirectX.DirectSound;
+//using Microsoft.DirectX.DirectSound;
 
 using System.IO;
 using System.Runtime.Serialization;
@@ -49,8 +49,8 @@ namespace OpenSebJ
 		private System.Windows.Forms.PictureBox ghettoEditionLogo;
 		private System.Timers.Timer AboutTimer;
 
-		private static Microsoft.DirectX.DirectSound.Device testCard;
-		private static Microsoft.DirectX.DirectSound.SecondaryBuffer testSound;
+        //private static Microsoft.DirectX.DirectSound.Device testCard;
+        //private static Microsoft.DirectX.DirectSound.SecondaryBuffer testSound;
 
 		//path used to locate and load fire.wav
 		string path;
@@ -71,10 +71,6 @@ namespace OpenSebJ
 			// Required for Windows Form Designer support
 			//
 			InitializeComponent();
-
-			//
-			// TODO: Add any constructor code after InitializeComponent call
-			//
 
 			if (useTimer == true)
 			{
@@ -231,18 +227,18 @@ namespace OpenSebJ
 			#endif 
 
             
-			try
-			{
-				testCard = new Microsoft.DirectX.DirectSound.Device();
-				testCard.SetCooperativeLevel(this, Microsoft.DirectX.DirectSound.CooperativeLevel.Normal);
+            //try
+            //{
+            //    testCard = new Microsoft.DirectX.DirectSound.Device();
+            //    testCard.SetCooperativeLevel(this, Microsoft.DirectX.DirectSound.CooperativeLevel.Normal);
 
-				//Microsoft.DirectX.DirectSound.SecondaryBuffer[] aSound = new SecondaryBuffer[256];
-				testSound = new Microsoft.DirectX.DirectSound.SecondaryBuffer(path + "fire.wav", testCard);
-			}
-			catch(Microsoft.DirectX.DirectSound.SoundException Exc)
-			{
-				MessageBox.Show("There has been an error while seting up your sound card; please review your Direct X settings. :: " + Exc.ErrorString.ToString());
-			}
+            //    //Microsoft.DirectX.DirectSound.SecondaryBuffer[] aSound = new SecondaryBuffer[256];
+            //    testSound = new Microsoft.DirectX.DirectSound.SecondaryBuffer(path + "fire.wav", testCard);
+            //}
+            //catch(Microsoft.DirectX.DirectSound.SoundException Exc)
+            //{
+            //    MessageBox.Show("There has been an error while seting up your sound card; please review your Direct X settings. :: " + Exc.ErrorString.ToString());
+            //}
 
             lblVersion.Text = "Sending Request";
             string _webCheck = globalSettings.versionCheckAddress + globalSettings.releaseVersion;
@@ -260,35 +256,41 @@ namespace OpenSebJ
             }
 
             // Audio device enumeration
-            AudioDeviceEnumeration();
+            //AudioDeviceEnumeration();
 		
 		}
 
 
 		private void cmbDone_Click(object sender, System.EventArgs e)
 		{
-            // Gets the GUID of the selected sound device
-            globalSettings.audioDevice = directSoundDevices[cmbDevices.SelectedIndex];
-            //globalSettings.selectedAudioDevice = cmbDevices.SelectedIndex;
+            //// Gets the GUID of the selected sound device
+            //globalSettings.audioDevice = directSoundDevices[cmbDevices.SelectedIndex];
+            ////globalSettings.selectedAudioDevice = cmbDevices.SelectedIndex;
 
-            globalSettings.aDC.selectedAudioDevice = cmbDevices.SelectedIndex;
-            audioDeviceSave();
+            //globalSettings.aDC.selectedAudioDevice = cmbDevices.SelectedIndex;
+            //audioDeviceSave();
 
-            if (dsInterface.aSoundCard == null)
+            //if (dsInterface.aSoundCard == null)
+            if (sdlInterface.SDLInitalised == false)
             {
                 // Sets up the DX Audio Interface for the program
-                dsInterface.setupAudio(this);
+                //dsInterface.setupAudio(this);
+                
+                
+                //Sets up the SDL Audio Interface
+                sdlInterface.setupAudio(this);
+
             }
-            else
-            {
-                dsInterface.changeAudioDevice();
-            }
+            //else
+            //{
+            //    dsInterface.changeAudioDevice();
+            //}
 
 
 
             // Close it all down
-            testSound = null;
-			testCard = null;
+            //testSound = null;
+            //testCard = null;
 			AboutTimer = null;
 			this.Close();
 		}
@@ -303,22 +305,25 @@ namespace OpenSebJ
 
 		private void ghettoEditionLogo_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
-			try
-			{
-				if (testSound.Status.Playing == false)
-				{
-					testSound.Play(0, Microsoft.DirectX.DirectSound.BufferPlayFlags.Default);
-				}
-				else
-				{
-					testSound.SetCurrentPosition(0);
-					testSound.Play(0, Microsoft.DirectX.DirectSound.BufferPlayFlags.Default);
-				}
-			}
-			catch (Microsoft.DirectX.DirectSound.SoundException Exc)
-			{
-				MessageBox.Show("There has been an error while attempting to play a test sample; please review your Direct X settings and confirm the test sample is located with this executable. Direct X error message follows :: " + Exc.Message.ToString() + " "  + Exc.ErrorCode.ToString() + " " + Exc.ErrorString.ToString());
-			}
+            //TODO: SG - Add the shot noise back
+
+
+            //try
+            //{
+            //    if (testSound.Status.Playing == false)
+            //    {
+            //        testSound.Play(0, Microsoft.DirectX.DirectSound.BufferPlayFlags.Default);
+            //    }
+            //    else
+            //    {
+            //        testSound.SetCurrentPosition(0);
+            //        testSound.Play(0, Microsoft.DirectX.DirectSound.BufferPlayFlags.Default);
+            //    }
+            //}
+            //catch (Microsoft.DirectX.DirectSound.SoundException Exc)
+            //{
+            //    MessageBox.Show("There has been an error while attempting to play a test sample; please review your Direct X settings and confirm the test sample is located with this executable. Direct X error message follows :: " + Exc.Message.ToString() + " "  + Exc.ErrorCode.ToString() + " " + Exc.ErrorString.ToString());
+            //}
 
 
 			Graphics g;
@@ -356,56 +361,56 @@ namespace OpenSebJ
 
 
 
-        public void AudioDeviceEnumeration()
-        {
-            Microsoft.DirectX.DirectSound.DevicesCollection devices = new Microsoft.DirectX.DirectSound.DevicesCollection();
+        //public void AudioDeviceEnumeration()
+        //{
+        //    Microsoft.DirectX.DirectSound.DevicesCollection devices = new Microsoft.DirectX.DirectSound.DevicesCollection();
             
-            directSoundDevices = new Guid[devices.Count];
+        //    directSoundDevices = new Guid[devices.Count];
             
-            // Gets the Guid and populates the associated descritption for each sound device
-            for (int i = 0; i < devices.Count; i++)
-            {
-                DeviceInformation devInfo = devices[i];
-                cmbDevices.Items.Add(devInfo.Description);
-                directSoundDevices[i] = devInfo.DriverGuid;
-            }
+        //    // Gets the Guid and populates the associated descritption for each sound device
+        //    for (int i = 0; i < devices.Count; i++)
+        //    {
+        //        DeviceInformation devInfo = devices[i];
+        //        cmbDevices.Items.Add(devInfo.Description);
+        //        directSoundDevices[i] = devInfo.DriverGuid;
+        //    }
 
-            // Setup the selected audio device, by enumerated value
-            globalSettings.aDC.selectedAudioDevice = 0;
+        //    // Setup the selected audio device, by enumerated value
+        //    globalSettings.aDC.selectedAudioDevice = 0;
 
-            try
-            {
-                // Load the audio device from the last session
-                audioDeviceLoad();
+        //    try
+        //    {
+        //        // Load the audio device from the last session
+        //        audioDeviceLoad();
 
-            }catch
-            {
-                // Create the settings file if it doesn't exist and save with the default
-                audioDeviceSave();
-            }
+        //    }catch
+        //    {
+        //        // Create the settings file if it doesn't exist and save with the default
+        //        audioDeviceSave();
+        //    }
 
-            // Sets to the default value of 0 (Should be Primary) or the previously selected value if it was different
-            cmbDevices.SelectedIndex = globalSettings.aDC.selectedAudioDevice;
+        //    // Sets to the default value of 0 (Should be Primary) or the previously selected value if it was different
+        //    cmbDevices.SelectedIndex = globalSettings.aDC.selectedAudioDevice;
             
-        }
+        //}
 
-        private void audioDeviceSave()
-        {
-            // Binary Serializes
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(globalSettings.path + "audioDevice.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, globalSettings.aDC);
-            stream.Close();
-        }
+        //private void audioDeviceSave()
+        //{
+        //    // Binary Serializes
+        //    IFormatter formatter = new BinaryFormatter();
+        //    Stream stream = new FileStream(globalSettings.path + "audioDevice.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+        //    formatter.Serialize(stream, globalSettings.aDC);
+        //    stream.Close();
+        //}
 
-        private void audioDeviceLoad()
-        {
-            // Reserializes
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(globalSettings.path + "audioDevice.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            globalSettings.aDC = (audioDeviceConfig)formatter.Deserialize(stream);
-            stream.Close();
-        }
+        //private void audioDeviceLoad()
+        //{
+        //    // Reserializes
+        //    IFormatter formatter = new BinaryFormatter();
+        //    Stream stream = new FileStream(globalSettings.path + "audioDevice.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+        //    globalSettings.aDC = (audioDeviceConfig)formatter.Deserialize(stream);
+        //    stream.Close();
+        //}
 
 	}
 

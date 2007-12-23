@@ -141,7 +141,8 @@ namespace OpenSebJ
                     {
                         if (globalSettings.osj.TrackEditor_SampleInstance_Enabled[i] == true)
                         {
-                            dsInterface.play(globalSettings.osj.TrackEditor_SampleInstance_Sample[i]);
+                            //dsInterface.play(globalSettings.osj.TrackEditor_SampleInstance_Sample[i]);
+                            sdlInterface.play(globalSettings.osj.TrackEditor_SampleInstance_Sample[i]);
                         }
                     }
                 }
@@ -199,7 +200,8 @@ namespace OpenSebJ
                         {
                             // If the sample hasn't been loaded; an error will be thrown
                             // and no other samples will be played at the same position
-                            dsInterface.play(globalSettings.osj.TrackEditor_SampleInstance_Sample[i]);
+                            //dsInterface.play(globalSettings.osj.TrackEditor_SampleInstance_Sample[i]);
+                            sdlInterface.play(globalSettings.osj.TrackEditor_SampleInstance_Sample[i]);
                         }
                     }
                 }
@@ -229,16 +231,18 @@ namespace OpenSebJ
             }
             else
             {
+                //Not required. SDL doesn't pause
+                
                 // CR 1661562 
                 // If the timer is not defined then reset the wave positions 
                 // when the reset button is pressed
-                for (int i = 0; i < 262; i++)
-                {
-                    if (globalSettings.osj.sampleLoaded[i])
-                    {
-                        dsInterface.aSound[i].SetCurrentPosition(0);
-                    }
-                }
+                //for (int i = 0; i < 262; i++)
+                //{
+                //    if (globalSettings.osj.sampleLoaded[i])
+                //    {
+                //        dsInterface.aSound[i].SetCurrentPosition(0);
+                //    }
+                //}
             }
             
             globalSettings.osj.TrackEditor_PlayTick = globalSettings.osj.TrackEditor_BaseTick - tickOffset;
@@ -298,7 +302,8 @@ namespace OpenSebJ
                 {
                     if (globalSettings.osj.sampleLoaded[i])
                     {
-                        dsInterface.aSound[i].Stop();
+                        //dsInterface.aSound[i].Stop();
+                        sdlInterface.stop(i);
                     }
                 }
             }

@@ -31,7 +31,7 @@ namespace OpenSebJ
 {
     public partial class frmRecord : Form
     {
-        private bufferRecord _rec;
+        //private bufferRecord _rec;
         
         public frmRecord()
         {

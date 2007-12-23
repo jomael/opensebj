@@ -44,7 +44,7 @@ namespace OpenSebJ
         private bool loaded = false;
 
         // Only want one video portal open at a time
-        frmVideoRender videoRender;
+        //frmVideoRender videoRender;
 
 
         public frmMainEditor()
@@ -239,9 +239,9 @@ namespace OpenSebJ
         {
             normWindows();
 
-            frmRecord record = new frmRecord();
-            record.MdiParent = this;
-            record.Show();
+            //frmRecord record = new frmRecord();
+            //record.MdiParent = this;
+            //record.Show();
         }
 
         private void frmMainEditor_Activated(object sender, EventArgs e)
@@ -260,14 +260,14 @@ namespace OpenSebJ
             }
         }
 
-        private void dXSoundToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            normWindows();
+        //private void dXSoundToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    normWindows();
 
-            frmDxDeviceInfo deviceInfo = new frmDxDeviceInfo();
-            deviceInfo.MdiParent = this;
-            deviceInfo.Show();
-        }
+        //    frmDxDeviceInfo deviceInfo = new frmDxDeviceInfo();
+        //    deviceInfo.MdiParent = this;
+        //    deviceInfo.Show();
+        //}
 
         public void createNewComposition()
         {
@@ -325,95 +325,96 @@ namespace OpenSebJ
                     System.IO.File.WriteAllBytes(sampleName, _bytes);
 
                     // Load the file using the standard dx interface
-                    dsInterface.loadSample(sampleName, i);
+                    //dsInterface.loadSample(sampleName, i);
+                    sdlInterface.loadSample(sampleName, i);
                 }
             }
 
-            // Make sure that if the video window has already been opened the videos will still be loaded
-            if (globalSettings.videoPortal == true)
-            {
-                // Pause any attempt to render
-                globalSettings.videoPortal_eRenderReady = false;
+            //// Make sure that if the video window has already been opened the videos will still be loaded
+            //if (globalSettings.videoPortal == true)
+            //{
+            //    // Pause any attempt to render
+            //    globalSettings.videoPortal_eRenderReady = false;
 
-                // Load the textures
-                eRender.LoadTextures();
+            //    // Load the textures
+            //    eRender.LoadTextures();
 
-                // Load the videos
-                eRender.LoadVideos();
+            //    // Load the videos
+            //    eRender.LoadVideos();
 
-                // Rendering OK now
-                globalSettings.videoPortal_eRenderReady = true;
+            //    // Rendering OK now
+            //    globalSettings.videoPortal_eRenderReady = true;
 
-            }
+            //}
 
             // Need to close any existing, open track editor and open another one
             openTrackEditor();
         }
 
-        private void videoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toggleVideoPortal();
-        }
+        //private void videoToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    toggleVideoPortal();
+        //}
 
         private void recordToolStripButton_Click(object sender, EventArgs e)
         {
             normWindows();
 
-            frmRecord record = new frmRecord();
-            record.MdiParent = this;
-            record.Show();
+            //frmRecord record = new frmRecord();
+            //record.MdiParent = this;
+            //record.Show();
         
         }
 
-        private void toggleVideoPortal()
-        {
-            if (globalSettings.videoPortal == false)
-            {
+        //private void toggleVideoPortal()
+        //{
+        //    if (globalSettings.videoPortal == false)
+        //    {
 
-                DialogResult fullScreenDialog = new DialogResult();
-                fullScreenDialog = System.Windows.Forms.MessageBox.Show("Do you want to launch the video portal in full screen?", "Full Screen?", MessageBoxButtons.YesNoCancel);
+        //        DialogResult fullScreenDialog = new DialogResult();
+        //        fullScreenDialog = System.Windows.Forms.MessageBox.Show("Do you want to launch the video portal in full screen?", "Full Screen?", MessageBoxButtons.YesNoCancel);
 
-                switch (fullScreenDialog)
-                {
-                    case DialogResult.Yes:
-                        globalSettings.videoPortal_FullScreen = true;
-                        break;
+        //        switch (fullScreenDialog)
+        //        {
+        //            case DialogResult.Yes:
+        //                globalSettings.videoPortal_FullScreen = true;
+        //                break;
 
-                    case DialogResult.No:
-                        globalSettings.videoPortal_FullScreen = false;
-                        break;
+        //            case DialogResult.No:
+        //                globalSettings.videoPortal_FullScreen = false;
+        //                break;
 
-                    case DialogResult.Cancel:
-                        return;
-                        //break;
-                }
+        //            case DialogResult.Cancel:
+        //                return;
+        //                //break;
+        //        }
                 
                 
-                // Can't handle two video portals
-                //globalSettings.videoPortal = true;
-                videoToolStripMenuItem.Checked = true;
+        //        // Can't handle two video portals
+        //        //globalSettings.videoPortal = true;
+        //        videoToolStripMenuItem.Checked = true;
 
-                // Mark that the video portal still shouldn't start rendering yet
-                globalSettings.videoPortal_eRenderReady = false;
+        //        // Mark that the video portal still shouldn't start rendering yet
+        //        globalSettings.videoPortal_eRenderReady = false;
 
-                videoRender = new frmVideoRender();
-                videoRender.Visible = true;
-                videoRender.Activate();
+        //        videoRender = new frmVideoRender();
+        //        videoRender.Visible = true;
+        //        videoRender.Activate();
 
-            }
-            else
-            {
+        //    }
+        //    else
+        //    {
 
-                System.Windows.Forms.MessageBox.Show("Currently closing the Video Portal after it has been opened is not supported", "Closing the video portal not supported");
+        //        System.Windows.Forms.MessageBox.Show("Currently closing the Video Portal after it has been opened is not supported", "Closing the video portal not supported");
 
-                //// Close video portals
-                //globalSettings.videoPortal = false;
-                //videoToolStripMenuItem.Checked = false;
-                //globalSettings.videoPortal_eRenderReady = false;
+        //        //// Close video portals
+        //        //globalSettings.videoPortal = false;
+        //        //videoToolStripMenuItem.Checked = false;
+        //        //globalSettings.videoPortal_eRenderReady = false;
 
-                //videoRender.Close();
-            }
-        }
+        //        //videoRender.Close();
+        //    }
+        //}
 
         private void drumMachineToolStripMenuItem_Click(object sender, EventArgs e)
         {

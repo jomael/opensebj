@@ -675,11 +675,13 @@ namespace OpenSebJ
             {
                 doubleStop = false;
 
-                for (int i = 0; i <= dsInterface.loadedSamples; i++)
+                //for (int i = 0; i <= dsInterface.loadedSamples; i++)
+                for (int i = 0; i <= sdlInterface.loadedSamples; i++)
                 {
 
-                    dsInterface.aSound[i].Stop();
+                    //dsInterface.aSound[i].Stop();
 
+                    sdlInterface.stop(i);
                 }
             }
 
@@ -728,11 +730,13 @@ namespace OpenSebJ
                 // For all of the loaded samples, check if any sample needs to be played
                 // This is basically the bit which makes the beat box work. If you were hard core
                 // you could just adjust the array manually - but where is the fun in that ;-)
-                for (int i = 0; i <= dsInterface.loadedSamples; i++)
+                //for (int i = 0; i <= dsInterface.loadedSamples; i++)
+                for (int i = 0; i <= sdlInterface.loadedSamples; i++)
                 {
                     if (beatBox.getBeatStat(i, playPos) == true)
                     {
-                        dsInterface.play(i);
+                        //dsInterface.play(i);
+                        sdlInterface.play(i);
                     }
                 }
 
