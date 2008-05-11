@@ -239,9 +239,9 @@ namespace OpenSebJ
         {
             normWindows();
 
-            //frmRecord record = new frmRecord();
-            //record.MdiParent = this;
-            //record.Show();
+            frmRecord record = new frmRecord();
+            record.MdiParent = this;
+            record.Show();
         }
 
         private void frmMainEditor_Activated(object sender, EventArgs e)

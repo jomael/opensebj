@@ -39,7 +39,7 @@ namespace OpenSebJ
             {
                 if (_rec != null)
                 {
-                    _rec.StopRecording();
+                    _rec.stopRecording();
                 }
             }
             catch
@@ -95,6 +95,7 @@ namespace OpenSebJ
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(665, 86);
             this.flowLayoutPanel1.TabIndex = 3;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // lblFile
             // 
@@ -139,8 +140,8 @@ namespace OpenSebJ
             this.KeyPreview = true;
             this.Name = "frmRecord";
             this.Text = "Record";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmRecord_KeyDown);
             this.Load += new System.EventHandler(this.frmRecord_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmRecord_KeyDown);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

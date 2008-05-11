@@ -99,6 +99,7 @@ namespace OpenSebJ
         public short[] sampleFormat_BitsPerSample = new short[262];
         public short[] sampleFormat_BlockAlign = new short[262];
         public short[] sampleFormat_Channels = new short[262];
+        public float[] sampleFormat_LengthInSeconds = new float[262];
         
         // Using a hashcode to identify the format tag - DirectX components are not normally serializable
         public int[] sampleFormat_FormatTag_HashCode = new int[262];	

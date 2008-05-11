@@ -287,6 +287,14 @@ namespace OpenSebJ
             //}
 
 
+            
+            // Setup OpenALInterface
+            if (!OpenAlInterface.OpenAlInitalised)
+            {
+                OpenAlInterface.setupOpenAL(this);
+            }
+
+
 
             // Close it all down
             //testSound = null;

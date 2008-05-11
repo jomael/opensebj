@@ -31,7 +31,7 @@ namespace OpenSebJ
 {
     public partial class frmRecord : Form
     {
-        //private bufferRecord _rec;
+        private OpenALRecord _rec;
         
         public frmRecord()
         {
@@ -40,6 +40,13 @@ namespace OpenSebJ
 
         private void cmbRecord_Click(object sender, EventArgs e)
         {
+            //if (!OpenAlInterface.OpenAlInitalised)
+            //{
+            //    OpenAlInterface.setupOpenAL(this);
+            //}
+
+
+
             if (cmbRecord.Text == "Record")
             {
                 _rec.startRecording();
@@ -47,7 +54,7 @@ namespace OpenSebJ
             }
             else
             {
-                _rec.StopRecording();
+                _rec.stopRecording();
                 cmbRecord.Text = "Record";
                 
                 // Fix the buttons so there aren't any concurency issue
@@ -60,7 +67,7 @@ namespace OpenSebJ
 
         private void cmbSelectFile_Click(object sender, EventArgs e)
         {
-            //string fileName = "";
+            string fileName = "";
             
             try
             {
@@ -68,20 +75,15 @@ namespace OpenSebJ
                 save = saveDialog.ShowDialog();
                 if (save == DialogResult.OK)
                 {
-                    
                         lblFile.Text = saveDialog.FileName;
 
-                        _rec = new bufferRecord();
-                        _rec.createCaptureDevice();
-                        _rec.setRecordFormat();
-                        _rec.createRecordBuffer();
+                        _rec = new OpenALRecord();
                         _rec.preRecord(saveDialog.FileName);
 
                         // Fix the buttons so there aren't any concurency issue
                         cmbRecord.Enabled = true;
                         cmbSelectFile.Enabled = false;
                 }
-                
             }
             catch (Exception excpt)
             {
@@ -96,7 +98,12 @@ namespace OpenSebJ
 
         private void frmRecord_KeyDown(object sender, KeyEventArgs e)
         {
-            dsInterface.playKey(e.KeyValue, e.Control);
+            //dsInterface.playKey(e.KeyValue, e.Control);
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     
     } // End of class

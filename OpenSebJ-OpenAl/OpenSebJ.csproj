@@ -117,6 +117,10 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdvanceMath, Version=1.2.2565.22139, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\AdvanceMath.dll</HintPath>
+    </Reference>
     <Reference Include="SdlDotNet, Version=6.0.0.0, Culture=neutral, PublicKeyToken=26ad4f7e10c61408, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dependencies\SdlDotNet.dll</HintPath>
@@ -139,6 +143,10 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
+    <Reference Include="Tao.OpenAl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a7579dda88828311, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Tao.OpenAl.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -150,12 +158,24 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <BaseApplicationManifest Include="Properties\app.manifest" />
+    <Content Include="AdvanceMath.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="alut.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="App.ico" />
     <Content Include="blank.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="fire.wav" />
     <Content Include="GNUGPL_LICENSE.txt" />
+    <Content Include="OpenAL32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OpenALDotNet.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="openSebJ.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -177,6 +197,9 @@
     <Content Include="SDL_mixer.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Tao.OpenAl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Tao.Sdl.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -196,6 +219,12 @@
     </Compile>
     <Compile Include="frmMainEditor.Designer.cs">
       <DependentUpon>frmMainEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecord.Designer.cs">
+      <DependentUpon>frmRecord.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSaveExplorer.cs">
       <SubType>Form</SubType>
@@ -235,6 +264,8 @@
     </Compile>
     <Compile Include="globalSettings.cs" />
     <Compile Include="httpFunctions.cs" />
+    <Compile Include="OpenAlInterface.cs" />
+    <Compile Include="OpenALRecord.cs" />
     <Compile Include="OpenSebJ.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +290,9 @@
     <EmbeddedResource Include="frmMainEditor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmMainEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecord.resx">
+      <DependentUpon>frmRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSaveExplorer.resx">
       <SubType>Designer</SubType>
@@ -322,6 +356,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OpenAl.Net\trunk\src\OpenALDotNet.csproj">
+      <Project>{F9F62673-6D83-49E8-A168-49EDD9C5E609}</Project>
+      <Name>OpenALDotNet</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

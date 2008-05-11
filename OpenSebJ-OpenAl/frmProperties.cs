@@ -521,6 +521,10 @@ namespace OpenSebJ
                     chkLoop.Checked = false;
                 }
 
+                
+
+
+
 
                 //if (dsInterface.reverseSample[sample] == true)
                 //{
@@ -534,6 +538,15 @@ namespace OpenSebJ
                 //trkPan.Value = dsInterface.getPan(sample);
                 //trkVolume.Value = dsInterface.getVolume(sample);
                 trkVolume.Value = sdlInterface.getVolume(sample);
+
+
+                OpenAlInterface.getSampleSetting(sample);
+                //lblChannels.Text = lblChannels.Text + OpenAlInterface.getSampleChannels(globalSettings.osj.sampleLocations[sample]);
+                lblChannels.Text = lblChannels.Text + globalSettings.osj.sampleFormat_Channels[sample];
+                lblBitDepth.Text = lblBitDepth.Text + globalSettings.osj.sampleFormat_BitsPerSample[sample];
+                lblLength.Text = lblLength.Text + globalSettings.osj.sampleFormat_LengthInSeconds[sample];
+                lblFrequency.Text = lblFrequency.Text + globalSettings.osj.sampleSettings_Frequency[sample];
+
 
                 //lblChannels.Text = lblChannels.Text + dsInterface.getChannels(sample);
                 //lblBitDepth.Text = lblBitDepth.Text + dsInterface.getBitsPerSample(sample);
