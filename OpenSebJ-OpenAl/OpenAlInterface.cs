@@ -78,7 +78,12 @@ namespace OpenSebJ
         }
 
 
-
+        public static Byte[] getSampleBytes(int _sample)
+        {
+            WaveFileReader wfr = new WaveFileReader();
+            wfr.OpenFile(globalSettings.osj.sampleLocations[_sample]);
+            return wfr.WaveDataByteBuffer();
+        }
 
 
 

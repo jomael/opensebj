@@ -125,6 +125,9 @@ namespace OpenSebJ
                         //Enable the button after the sample has been loaded
                         // CR 1671525
                         cmbSettings.Enabled = true;
+
+                        // Load the sample settings from the OpenAlInterface
+                        OpenAlInterface.getSampleSetting(_sample);
                     }
 
                 }
@@ -175,20 +178,17 @@ namespace OpenSebJ
             this._sampleInstance[_storedInstances].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 
             this._sampleInstance[_storedInstances].Height = 100;
-            //this._sampleInstance[_storedInstances].Width = (int)(dsInterface.getLength(_sample) * (float)(1000 / globalSettings.osj.TrackEditor_Tick));
-            //TODO: SG - ADD BACK A CALCULATION FOR LENGTH!
-            this._sampleInstance[_storedInstances].Width = 200;
+            this._sampleInstance[_storedInstances].Width = (int)(globalSettings.osj.sampleFormat_LengthInSeconds[_sample] * (float)(1000 / globalSettings.osj.TrackEditor_Tick));
 
-            // TODO: Add movement controls for samples here
             this._sampleInstance[_storedInstances].MouseMove += new System.Windows.Forms.MouseEventHandler(this._sampleInstance_MouseMove);
             this._sampleInstance[_storedInstances].MouseDown += new System.Windows.Forms.MouseEventHandler(this._sampleInstance_MouseDown);
 
             //TODO: SG - Add back buffer graph
-            //// New instance of bufferGraph (used to add an image of the sample to the track)
-            //bufferGraph bGraph = new bufferGraph();
-            //// Interface simplified, ask for a bitmap and get it (format predefined in bufferGraph class though ;-)
-            //// Uses height twice the size of the label so that it is bigger and better
-            //this._sampleInstance[_storedInstances].Image = bGraph.getGraph(_sample, this._sampleInstance[_storedInstances].Width, 200);
+            // New instance of bufferGraph (used to add an image of the sample to the track)
+            bufferGraph bGraph = new bufferGraph();
+            // Interface simplified, ask for a bitmap and get it (format predefined in bufferGraph class though ;-)
+            // Uses height twice the size of the label so that it is bigger and better
+            this._sampleInstance[_storedInstances].Image = bGraph.getGraph(_sample, this._sampleInstance[_storedInstances].Width, 200);
 
 
             this.Controls.Add(this._sampleInstance[_storedInstances]);

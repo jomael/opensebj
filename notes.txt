@@ -1,6 +1,8 @@
 OpenAL Version
 
-OpenAL - Implement OpenAL Libaries for Audio Recording and Wave Graphing
+Done - OpenAL - Implement OpenAL Libaries for Audio Recording
+
+Done - Implement OpenAL Libaries for Wave Graphing
 
 Beat Pad - Handle playing a file which has not been setup, rather than throwing an error
 

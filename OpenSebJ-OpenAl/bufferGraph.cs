@@ -230,8 +230,12 @@ namespace OpenSebJ
 
         public short[] getBuffer(int sampleToRead)
         {
-            numOfBytes = dsInterface.aSound[sampleToRead].Caps.BufferBytes;
-            int bytesPerSample = dsInterface.aSound[sampleToRead].Format.BitsPerSample / 8;
+            //numOfBytes = dsInterface.aSound[sampleToRead].Caps.BufferBytes;
+            //int bytesPerSample = dsInterface.aSound[sampleToRead].Format.BitsPerSample / 8;
+
+            numOfBytes = globalSettings.osj.sampleFormat_BufferBytes_Size[sampleToRead];
+            int bytesPerSample = globalSettings.osj.sampleFormat_BitsPerSample[sampleToRead] / 8;
+            
 
             CreateStreamBuffers();
             CreateStreams();
@@ -242,8 +246,13 @@ namespace OpenSebJ
             short[] Points = new Int16[iNumOfSamples];
 
             // Read the complete stream in to a memory stream
-            dsInterface.aSound[sampleToRead].Read(0, stream0, numOfBytes, Microsoft.DirectX.DirectSound.LockFlag.EntireBuffer);
+            //dsInterface.aSound[sampleToRead].Read(0, stream0, numOfBytes, Microsoft.DirectX.DirectSound.LockFlag.EntireBuffer);
 
+            // Read the complete stream in to a memory stream
+            Byte[] waveData = OpenAlInterface.getSampleBytes(sampleToRead);
+            MemoryStream OrigionalWaveData = new MemoryStream(waveData);
+            OrigionalWaveData.WriteTo(stream0);
+            
 
             //System.Windows.Forms.MessageBox.Show(bytesPerSample.ToString());
            
@@ -312,7 +321,8 @@ namespace OpenSebJ
             int _Sample = Sample;
 
             short[] buff = getBuffer(_Sample);
-            Setup(dsInterface.aSound[_Sample].Format.Channels, buff, (int)(dsInterface.aSound[_Sample].Caps.BufferBytes / (dsInterface.aSound[_Sample].Format.BitsPerSample / 8.0f)), dsInterface.aSound[_Sample].Frequency, 100f, 800, 250);
+            //Setup(dsInterface.aSound[_Sample].Format.Channels, buff, (int)(dsInterface.aSound[_Sample].Caps.BufferBytes / (dsInterface.aSound[_Sample].Format.BitsPerSample / 8.0f)), dsInterface.aSound[_Sample].Frequency, 100f, 800, 250);
+            Setup(globalSettings.osj.sampleFormat_Channels[_Sample], buff, (int)(globalSettings.osj.sampleFormat_BufferBytes_Size[_Sample] / (globalSettings.osj.sampleFormat_BitsPerSample[_Sample] / 8.0f)), globalSettings.osj.sampleSettings_Frequency[_Sample], 100f, 800, 250);
             ShowWave(true);
             return getWaveBitmap();
         }
@@ -322,7 +332,8 @@ namespace OpenSebJ
             int _Sample = Sample;
 
             short[] buff = getBuffer(_Sample);
-            Setup(dsInterface.aSound[_Sample].Format.Channels, buff, (int)(dsInterface.aSound[_Sample].Caps.BufferBytes / (dsInterface.aSound[_Sample].Format.BitsPerSample / 8.0f)), dsInterface.aSound[_Sample].Frequency, 100f, Width, Height);
+            //Setup(dsInterface.aSound[_Sample].Format.Channels, buff, (int)(dsInterface.aSound[_Sample].Caps.BufferBytes / (dsInterface.aSound[_Sample].Format.BitsPerSample / 8.0f)), dsInterface.aSound[_Sample].Frequency, 100f, Width, Height);
+            Setup(globalSettings.osj.sampleFormat_Channels[_Sample], buff, (int)(globalSettings.osj.sampleFormat_BufferBytes_Size[_Sample] / (globalSettings.osj.sampleFormat_BitsPerSample[_Sample] / 8.0f)), globalSettings.osj.sampleSettings_Frequency[_Sample], 100f, Width, Height);
             ShowWave(false);
             return getWaveBitmap();
         }

@@ -208,6 +208,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="beatBox.cs" />
+    <Compile Include="bufferGraph.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ctrlTrack.cs">
       <SubType>UserControl</SubType>
     </Compile>
