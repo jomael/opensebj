@@ -169,7 +169,7 @@ namespace OpenSebJ
                 if (ch[position][p].IsPlaying() == false)
                 {
                     // Play the required sample
-                    ch[position][p].Play(aSound[position], 0);
+                    ch[position][p].Play(aSound[position], sdlInterface.loopSample[position]);
 
                     //Thread.Sleep(50);
 

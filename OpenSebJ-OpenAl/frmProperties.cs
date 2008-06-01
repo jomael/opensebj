@@ -570,44 +570,44 @@ namespace OpenSebJ
 
 		private void chkLoop_CheckedChanged(object sender, System.EventArgs e)
 		{
-            sdlInterface.loopSample[sample] = true;
+            
             
 
 
             //TODO: SG - add check for playing and add stop/start logic in
 
 
-            //if (chkLoop.Checked == true)
-            //{
-            //    sdlInterface.loopSample[sample] = true;
+            if (chkLoop.Checked == true)
+            {
+                sdlInterface.loopSample[sample] = true;
 
-            //    int pos = 0;
-            //    int writePos = 0;
+                //int pos = 0;
+                //int writePos = 0;
 
-            //    if (sdlInterface.aSound[sample].Status.Playing == true)
-            //    {
-            //        sdlInterface.aSound[sample].GetCurrentPosition(out pos, out writePos);
-            //        sdlInterface.aSound[sample].SetCurrentPosition(pos);
-            //        sdlInterface.playFromPosition(sample);
-            //    }
+                //if (sdlInterface.aSound[sample].Status.Playing == true)
+                //{
+                //    sdlInterface.aSound[sample].GetCurrentPosition(out pos, out writePos);
+                //    sdlInterface.aSound[sample].SetCurrentPosition(pos);
+                //    sdlInterface.playFromPosition(sample);
+                //}
 
 
 
-            //}
-            //else
-            //{
-            //    dsInterface.loopSample[sample] = false;
-				
-            //    int pos = 0;
-            //    int writePos = 0;
+            }
+            else
+            {
+                sdlInterface.loopSample[sample] = false;
 
-            //    if (dsInterface.aSound[sample].Status.Playing == true)
-            //    {
-            //        dsInterface.aSound[sample].GetCurrentPosition(out pos, out writePos);
-            //        dsInterface.aSound[sample].SetCurrentPosition(pos);
-            //        dsInterface.playFromPosition(sample);
-            //    }
-            //}
+                //int pos = 0;
+                //int writePos = 0;
+
+                //if (dsInterface.aSound[sample].Status.Playing == true)
+                //{
+                //    dsInterface.aSound[sample].GetCurrentPosition(out pos, out writePos);
+                //    dsInterface.aSound[sample].SetCurrentPosition(pos);
+                //    dsInterface.playFromPosition(sample);
+                //}
+            }
 		}
 
 		private void picDone_Click(object sender, System.EventArgs e)
