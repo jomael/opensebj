@@ -49,8 +49,6 @@ namespace OpenSebJ
 
         
 
-
-
         /// <summary>
         /// Setup the audio subsystem
         /// </summary>
@@ -61,14 +59,11 @@ namespace OpenSebJ
             OpenAlInitalised = true;
         }
 
-
-        public static short getSampleChannels(string fileName)
-        {
-            WaveFileReader wfr = new WaveFileReader();
-            wfr.OpenFile(fileName);
-            return (short)wfr.Channels();
-        }
-
+        
+        /// <summary>
+        /// Gets Sample Settings from the WaveFileReader class in the OpenAlDotNet Libary
+        /// </summary>
+        /// <param name="_sample">The Sample Number to obtain the format details for</param>
         public static void getSampleSetting(int _sample)
         {
             WaveFileReader wfr = new WaveFileReader();
@@ -80,37 +75,7 @@ namespace OpenSebJ
             globalSettings.osj.sampleFormat_SamplesPerSecond[_sample] = wfr.Samples();
             globalSettings.osj.sampleSettings_Frequency[_sample] = wfr.Frequency();
             globalSettings.osj.sampleFormat_LengthInSeconds[_sample] = wfr.Seconds();
-            
-                
-               
         }
-
-
-
-        ///// <summary>
-        ///// Creates a seperate thread to stream all samples to disk & awaits keyboard input to stop
-        ///// </summary>
-        //static void RecordToDisk()
-        //{
-        //    recordingStreamThread = new Thread(StreamAudio);
-        //    OpenALRecoding = true;
-        //    recordingStreamThread.Start();
-        //    Console.ReadLine();
-        //    recording = false;
-        //    recordingStreamThread.Join();
-
-        //}
-
-       
-
-
-
-
-
-
-
-
-
 
 
 

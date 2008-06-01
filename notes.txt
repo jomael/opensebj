@@ -1,0 +1,14 @@
+OpenAL Version
+
+OpenAL - Implement OpenAL Libaries for Audio Recording and Wave Graphing
+
+Beat Pad - Handle playing a file which has not been setup, rather than throwing an error
+
+Track Editor - Draw Wave Graph
+
+
+---------------------------------------------------------------------------
+
+
+
+OpenAL (potentially) -  Implement OpenAL Libaries rather than SDL libaries for playback
