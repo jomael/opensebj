@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="AudioEngine">
+</Property><Property Name="Solution File" Value="D:\OpenSebJ\AudioEngine\AudioEngine.sln">
+</Property><Property Name="User Options File" Value="D:\OpenSebJ\AudioEngine\AudioEngine.suo">
+</Property><Property Name="Date" Value="Saturday, 25 October 2008">
+</Property><Property Name="Time" Value="8:06 AM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="AudioEngine.sln" Description="File successfully backed up as D:\OpenSebJ\AudioEngine\Backup\AudioEngine.sln">
+</Event><Event ErrorLevel="0" Project="" Source="AudioEngine.suo" Description="File successfully backed up as D:\OpenSebJ\AudioEngine\Backup\AudioEngine.suo">
+</Event><Event ErrorLevel="0" Project="AudioEngine" Source="Sequencer\AudioEngine.csproj" Description="Project file successfully backed up as D:\OpenSebJ\AudioEngine\Backup\Sequencer\AudioEngine.csproj">
+</Event><Event ErrorLevel="0" Project="AudioEngine" Source="Sequencer\Events.cs" Description="File successfully backed up as D:\OpenSebJ\AudioEngine\Backup\Sequencer\Events.cs">
+</Event><Event ErrorLevel="0" Project="AudioEngine" Source="Sequencer\PrecisionTimer.cs" Description="File successfully backed up as D:\OpenSebJ\AudioEngine\Backup\Sequencer\PrecisionTimer.cs">
+</Event><Event ErrorLevel="0" Project="AudioEngine" Source="Sequencer\AudioEngineGlobalSettings.cs" Description="File successfully backed up as D:\OpenSebJ\AudioEngine\Backup\Sequencer\AudioEngineGlobalSettings.cs">
+</Event><Event ErrorLevel="0" Project="AudioEngine" Source="Sequencer\Sequencer.cs" Description="File successfully backed up as D:\OpenSebJ\AudioEngine\Backup\Sequencer\Sequencer.cs">
+</Event><Event ErrorLevel="0" Project="AudioEngine" Source="Sequencer\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\OpenSebJ\AudioEngine\Backup\Sequencer\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="AudioEngine" Source="Sequencer\TimeCodesPlayArgs.cs" Description="File successfully backed up as D:\OpenSebJ\AudioEngine\Backup\Sequencer\TimeCodesPlayArgs.cs">
+</Event><Event ErrorLevel="0" Project="AudioEngine" Source="Sequencer\Track.cs" Description="File successfully backed up as D:\OpenSebJ\AudioEngine\Backup\Sequencer\Track.cs">
+</Event><Event ErrorLevel="0" Project="AudioEngine" Source="Sequencer\AudioEngine.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="AudioEngine" Source="Sequencer\AudioEngine.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SequencerTest" Source="SequencerTest\SequencerTest.csproj" Description="Project file successfully backed up as D:\OpenSebJ\AudioEngine\Backup\SequencerTest\SequencerTest.csproj">
+</Event><Event ErrorLevel="0" Project="SequencerTest" Source="SequencerTest\Program.cs" Description="File successfully backed up as D:\OpenSebJ\AudioEngine\Backup\SequencerTest\Program.cs">
+</Event><Event ErrorLevel="0" Project="SequencerTest" Source="SequencerTest\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\OpenSebJ\AudioEngine\Backup\SequencerTest\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="SequencerTest" Source="SequencerTest\SequencerTest.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="SequencerTest" Source="SequencerTest\SequencerTest.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="AudioEngine.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="AudioEngine.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AudioEngine" Source="Sequencer\AudioEngine.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="SequencerTest" Source="SequencerTest\SequencerTest.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

@@ -47,6 +47,7 @@ namespace SequencerTest
                 Console.WriteLine("Press 4 to List all Events for a Track");
                 Console.WriteLine("Press 5 randomly add events to a Track");
                 Console.WriteLine("Press 6 to get a list of the first 100 events in order");
+                Console.WriteLine("Press 7 to test sequencer speed");
                 Console.WriteLine("Press Q to Exit test");
 
                 

@@ -28,10 +28,15 @@ namespace AudioEngine
 {
     class Track
     {
-        // The starting time code for the track
-        Int64 _timeCode = -1;
+        // The starting time code for the track - can not be less than 0; as such is set to 0 as the default.
+        Int64 _timeCode = 0;
+        public Int64 TimeCode
+        {
+            get { return _timeCode; }
+            set { _timeCode = value; }
+        }
 
-        // The instrument that the track represents
+        // The instrument that the track represents (in a generic sence, as each event can represent a different instrument)
         int _instrument = -1;
 
         // Default volume for the track
@@ -157,8 +162,9 @@ namespace AudioEngine
         /// Get all of the Time Codes for events assigned to the track
         /// </summary>
         /// <param name="Active">True: Active time codes only. False: All time codes</param>
+        /// <param name="IncludeTrackOffset">True: Add the current Track Offset when reporting positions. i.e. the events current global time code independant of the track's starting time code.</param>
         /// <returns>Int64[] with all of the relevant time code events</returns>
-        internal Int64[] GetEventTimeCodes(bool Active)
+        internal Int64[] GetEventTimeCodes(bool Active, bool IncludeTrackOffset)
         {
             Int64[] EventTimeCodes = new Int64[AudioEngineGlobalSettings.TrackEvents];
 
@@ -166,15 +172,31 @@ namespace AudioEngine
             {
                 if (_events[i] != null)
                 {
+                    //Only want active events
                     if (Active && _events[i].Active)
                     {
-                        EventTimeCodes[i] = _events[i].TimeCode;
+                        if (IncludeTrackOffset)
+                        {
+                            EventTimeCodes[i] = _events[i].TimeCode + _timeCode;
+                        }
+                        else
+                        {
+                            EventTimeCodes[i] = _events[i].TimeCode;
+                        }
                     }
                     else
                     {
+                        // non active events to be included
                         if (Active == false)
                         {
-                            EventTimeCodes[i] = _events[i].TimeCode;
+                            if (IncludeTrackOffset)
+                            {
+                                EventTimeCodes[i] = _events[i].TimeCode + _timeCode;
+                            }
+                            else
+                            {
+                                EventTimeCodes[i] = _events[i].TimeCode;
+                            }
                         }
                     }
                 }
@@ -188,6 +210,8 @@ namespace AudioEngine
 
             return EventTimeCodes;
         }
+
+        
 
 
         internal Events[] GetEvents(bool Active)
