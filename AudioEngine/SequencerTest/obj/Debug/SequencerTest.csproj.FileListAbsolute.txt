@@ -5,3 +5,10 @@ D:\OpenSebJ\AudioEngine\SequencerTest\bin\Debug\SequencerTest.pdb
 D:\OpenSebJ\AudioEngine\SequencerTest\bin\Debug\Sequencer.dll
 D:\OpenSebJ\AudioEngine\SequencerTest\bin\Debug\Sequencer.pdb
 D:\OpenSebJ\AudioEngine\SequencerTest\obj\Debug\ResolveAssemblyReference.cache
+E:\OpenSebJ\AudioEngine\SequencerTest\obj\Debug\SequencerTest.exe
+E:\OpenSebJ\AudioEngine\SequencerTest\obj\Debug\SequencerTest.pdb
+E:\OpenSebJ\AudioEngine\SequencerTest\bin\Debug\SequencerTest.exe
+E:\OpenSebJ\AudioEngine\SequencerTest\bin\Debug\SequencerTest.pdb
+E:\OpenSebJ\AudioEngine\SequencerTest\bin\Debug\Sequencer.dll
+E:\OpenSebJ\AudioEngine\SequencerTest\bin\Debug\Sequencer.pdb
+E:\OpenSebJ\AudioEngine\SequencerTest\obj\Debug\ResolveAssemblyReference.cache

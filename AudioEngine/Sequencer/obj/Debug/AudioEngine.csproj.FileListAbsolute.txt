@@ -3,3 +3,8 @@ D:\OpenSebJ\AudioEngine\Sequencer\bin\Debug\Sequencer.pdb
 D:\OpenSebJ\AudioEngine\Sequencer\obj\Debug\ResolveAssemblyReference.cache
 D:\OpenSebJ\AudioEngine\Sequencer\obj\Debug\Sequencer.dll
 D:\OpenSebJ\AudioEngine\Sequencer\obj\Debug\Sequencer.pdb
+E:\OpenSebJ\AudioEngine\Sequencer\obj\Debug\ResolveAssemblyReference.cache
+E:\OpenSebJ\AudioEngine\Sequencer\obj\Debug\Sequencer.dll
+E:\OpenSebJ\AudioEngine\Sequencer\bin\Debug\Sequencer.dll
+E:\OpenSebJ\AudioEngine\Sequencer\bin\Debug\Sequencer.pdb
+E:\OpenSebJ\AudioEngine\Sequencer\obj\Debug\Sequencer.pdb

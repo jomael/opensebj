@@ -247,7 +247,7 @@ namespace AudioEngine
             if (_tracks[Track] != null)
             {
                 //Get all of the time codes
-                TrackEventTimeCodes = _tracks[Track].GetEventTimeCodes(Active);
+                TrackEventTimeCodes = _tracks[Track].GetEventTimeCodes(Active,true);
             }
             else
             {
@@ -291,7 +291,7 @@ namespace AudioEngine
                 if (_tracks[i] != null)
                 {
                     Int64[] orderTime = new Int64[AudioEngineGlobalSettings.TrackEvents];
-                    orderTime = _tracks[i].GetEventTimeCodes(true);
+                    orderTime = _tracks[i].GetEventTimeCodes(true,true);
 
                     for (int q = 0; q < AudioEngineGlobalSettings.TrackEvents; q++)
                     {
@@ -529,6 +529,8 @@ namespace AudioEngine
             // Put the main thread to sleep for 1 millisecond to
             // allow the worker thread to do some work:
             Thread.Sleep(150);
+
+            //TODO: Replace this sleep with a check for if the playing global vairbale is now equal to false, rather than sleeping for an arbitary sleep amount of time.
 
             // Request that the worker thread stop itself:
             ptObject.Stop();

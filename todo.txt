@@ -1,0 +1,12 @@
+Syth
+- Piano roll view
+- Remove sample button
+- quantisation caability
+- 
+
+
+Piano Control
+- detect mouse events
+- can change colour when associated event triggered
+
+

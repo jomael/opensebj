@@ -107,7 +107,7 @@ namespace AudioEngine
 
 
 
-                    // IncToleranceMilliseconds is used to check if qn overrun has occured. Rather than trying 
+                    // IncToleranceMilliseconds is used to check if an overrun has occured. Rather than trying 
                     // to check every millisecond we check in blocks based on the tollerance and then
                     // play any samples from the last position up to the tollerance amount
                     IncToleranceMilliseconds = LastPositionPlayedTo + AudioEngineGlobalSettings.PrecisionTimerTolerance;
