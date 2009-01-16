@@ -19,8 +19,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>OpenSebJ</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>OpenSebJ.frmOpenSebJ</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -121,6 +120,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\AdvanceMath.dll</HintPath>
     </Reference>
+    <Reference Include="OpenALDotNet, Version=0.1.3303.38575, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="SdlDotNet, Version=6.0.0.0, Culture=neutral, PublicKeyToken=26ad4f7e10c61408, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dependencies\SdlDotNet.dll</HintPath>
@@ -359,12 +359,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\OpenALDotNet\trunk\src\OpenALDotNet.csproj">
-      <Project>{F9EB1554-99D6-4F99-9361-2B4CCB11CEED}</Project>
-      <Name>OpenALDotNet</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
