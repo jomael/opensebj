@@ -30,7 +30,7 @@ namespace OpenSebJ
     public static class globalSettings
     {
         // Storing the Global Variables here for convenience.
-        public static string releaseVersion = "0.42";
+        public static string releaseVersion = "0.43";
         public static string versionCheckAddress = "http://www.evolvingsoftware.com/version.php?version=";
 
         // Selected Audio Device
