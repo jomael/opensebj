@@ -1,0 +1,468 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OpenALDotNet</name>
+    </assembly>
+    <members>
+        <member name="P:OpenALDotNet.OpenAlIDResource.IsValid">
+            <summary>
+            Gets if it is a valid and will be reconized by Openal.
+            </summary>
+        </member>
+        <member name="T:OpenALDotNet.Orientation">
+            <summary>
+            AL_ORIENTATION is a pair of 3-tuples consisting of an 'at' vector and an 'up' vector, 
+            where the 'at' vector represents the 'forward' direction of the listener and the orthogonal 
+            projection of the 'up' vector into the subspace perpendicular to the 'at' vector represents 
+            the 'up' direction for the listener. OpenAL expects two vectors that are linearly 
+            independent. These vectors are not expected to be normalized. If the two vectors are
+            linearly dependent, behavior is undefined.
+            </summary>
+        </member>
+        <member name="F:OpenALDotNet.Orientation.At">
+            <summary>
+            Who you looking at? find out Here!
+            </summary>
+        </member>
+        <member name="F:OpenALDotNet.Orientation.Up">
+            <summary>
+            Which way is Up? this one Knows! ok so i need better comments. 
+            </summary>
+        </member>
+        <member name="T:OpenALDotNet.Streams.AudioStreamPlayer">
+            <summary>
+            Plays a AudioStream using multiple buffers to ensure a countinous playback.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.OpenAudioLibrary.Version">
+            <summary>
+            Gets the version string in format “[spec major number].[spec minor number] [optional vendor version information]”
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.OpenAudioLibrary.Renderer">
+            <summary>
+            Gets the information about the specific renderer
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.OpenAudioLibrary.Vendor">
+            <summary>
+            Gets the name of the vendor
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.OpenAudioLibrary.Extensions">
+            <summary>
+            Gets a list of available extensions separated by spaces
+            </summary>
+        </member>
+        <member name="T:OpenALDotNet.AudioContextParameters">
+            <summary>
+            Parameters for Creating a context
+            </summary>
+        </member>
+        <member name="M:OpenALDotNet.AudioContext.Process">
+            <summary>
+            Cuases the Context to be processed even if it is the not the currrent one.
+            </summary>
+        </member>
+        <member name="M:OpenALDotNet.AudioContext.Suspend">
+            <summary>
+            Stops the the processing of the context.
+            </summary>
+        </member>
+        <member name="E:OpenALDotNet.AudioContext.ContextChanged">
+            <summary>
+            An event for when the current Context has Changed.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioContext.CurrentContext">
+            <summary>
+            The current Context that all sources being created will belong to.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioContext.SpeedOfSound">
+            <summary>
+            Gets or Sets Speed of sound in same units as velocities
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioContext.DopplerVelocity">
+            <summary>
+            (Obsolete) Simular to Speed of Sound
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioContext.DopplerFactor">
+            <summary>
+            Gets or Sets a simple scaling of source and listener velocities to exaggerate or deemphasize the Doppler (pitch) shift resulting from the calculation.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioContext.DistanceModel">
+            <summary>
+            The current distance model
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioContext.Device">
+            <summary>
+            The device the Context belongs to.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioContext.IsCurrent">
+            <summary>
+            Gets or Sets if the Context is the current one.
+            </summary>
+        </member>
+        <member name="T:OpenALDotNet.Streams.AudioStream">
+            <summary>
+            A base class for wrapping streams from audio files.
+            </summary>
+        </member>
+        <member name="M:OpenALDotNet.AudioSource.EnqueueBuffer(OpenALDotNet.AudioBuffer)">
+            <summary>
+            Enqueues a Buffer for playing
+            </summary>
+            <param name="buffer">the buffer to be queued</param>
+        </member>
+        <member name="M:OpenALDotNet.AudioSource.EnqueueBufferRange(System.Collections.Generic.IList{OpenALDotNet.AudioBuffer})">
+            <summary>
+            Enqueues a Range of buffers for playing
+            </summary>
+            <param name="buffers">the list of buffers to play</param>
+        </member>
+        <member name="M:OpenALDotNet.AudioSource.DequeueBuffer">
+            <summary>
+            Dequeues a single buffer from the queue. 
+            </summary>
+            <returns>A AudioBuffer</returns>
+        </member>
+        <member name="M:OpenALDotNet.AudioSource.DequeueBufferRange(System.Int32)">
+            <summary>
+            Dequeues a Range of buffers 
+            </summary>
+            <param name="count">the number of buffers to dequeue</param>
+            <returns>An array of AudioBuffers</returns>
+        </member>
+        <member name="M:OpenALDotNet.AudioSource.Play">
+             <summary>
+            Plays the source by changing it's state to change to Playing. 
+            When called on a source that is already playing, the source will restart at the beginning. When the attached
+            buffer(s) are done playing, the source will progress to the Stopped state.
+             </summary>
+        </member>
+        <member name="M:OpenALDotNet.AudioSource.Pause">
+            <summary>
+            Pauses the source by changing it's state to change to Paused.
+            </summary>
+        </member>
+        <member name="M:OpenALDotNet.AudioSource.Stop">
+            <summary>
+            Stops the source by changing it's state to change to Stopped.
+            </summary>
+        </member>
+        <member name="M:OpenALDotNet.AudioSource.Rewind">
+            <summary>
+            Rewinds the source by changing it's state to change to Initial.
+            </summary>
+        </member>
+        <member name="M:OpenALDotNet.AudioSource.Clear">
+            <summary>
+            Stops the Source and Empties it's Queue
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.Context">
+            <summary>
+            Gets the AudioContext this source was created under.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.Direction">
+            <summary>
+            Gets or sets the direction of this source.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.Position">
+            <summary>
+            Gets or sets Position.
+            specifies the current location of the object in the world coordinate system. 
+            Any 3-tuple of valid float values is allowed. 
+            Implementation behavior on encountering NaN and infinity is not defined. 
+            The object position is always defined in the world coordinate system.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.Velocity">
+            <summary>
+            Gets or sets the Velocity.
+            specifies the current velocity (speed and direction) of the object, in the world coordinate system. 
+            Any 3-tuple of valid float/double values is allowed. 
+            The object AL_VELOCITY does not affect the source's position. 
+            OpenAL does not calculate the velocity from subsequent position updates, nor does it adjust the position over time based on the specified velocity. 
+            Any such calculation is left to the application. 
+            For the purposes of sound processing, position and velocity are independent parameters affecting different aspects of the sounds. 
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.IsLooping">
+            <summary>
+            Gets if the Source while restart once its processed all its buffers
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.IsRelative">
+            <summary>
+            set to true indicates that the position, velocity, cone, and direction properties of a source are to be interpreted relative to the listener position.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.RolloffFactor">
+            <summary>
+            the rolloff rate for the source default is 1.0
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.Pitch">
+            <summary>
+            Gets or Sets the pitch multiplier, this must be positive.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.Gain">
+            <summary>
+            gets and sets a scalar amplitude multiplier. As a source attribute, it applies to that particular source only. 
+            As a listener attribute, it effectively applies to all sources in the current context. 
+            The default 1.0 means that the sound is unattenuated. 
+            An AL_GAIN value of 0.5 is equivalent to an attenuation of 6 dB. 
+            The value zero equals silence (no contribution to the output mix). 
+            Driver implementations are free to optimize this case and skip mixing and processing stages where applicable. 
+            The implementation is in charge of ensuring artifact-free (click-free) changes of gain values and is free to defer actual modification of the sound samples, within the limits of acceptable latencies.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.MaxGain">
+            <summary>
+            Gets or Sets the maximum gain for this source
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.MinGain">
+            <summary>
+            Gets or Sets the minimum gain for this source
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.MaxDistance">
+             <summary>
+             Gets or Sets  the MaxDistance.   
+            used with the Inverse Clamped Distance Model
+            to set the distance where there will no longer be
+            any attenuation of the source
+             </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.ReferenceDistance">
+             <summary>
+            Gets or Sets the distance under which the volume for the
+            source would normally drop by half (before
+            being influenced by rolloff factor or AL_MAX_DISTANCE)
+             </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.ConeInnerAngle">
+            <summary>
+            Gets or Sets the gain in the inside cone
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.ConeOuterAngle">
+            <summary>
+            Gets or Sets the outer angle of the sound cone, in degrees default is 360
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.ConeOuterGain">
+            <summary>
+            Gets or Sets the gain when outside the oriented cone
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.BytesOffset">
+            <summary>
+            Gets or Sets the playback Position in bytes
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.SamplesOffset">
+            <summary>
+            Gets or Sets the playback Position in samples
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.SecondsOffset">
+            <summary>
+            Gets or Sets the playback Position in seconds
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.BytesQueued">
+            <summary>
+            Gets the total number of Bytes in all the AudioBuffers in the queue
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.SamplesQueued">
+            <summary>
+            Gets the total number of Samples in all the AudioBuffers in the queue
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.SecondsQueued">
+            <summary>
+            Gets the total number of Seconds in all the AudioBuffers in the queue
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.BuffersQueued">
+            <summary>
+            Gets the number of AudioBuffers queued on this source
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.BuffersProcessed">
+            <summary>
+            Gets the number of buffers in the queue that have been processed
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.CurrentBuffer">
+            <summary>
+            Gets or Sets the current AudioBuffer.
+            If setting it clears the buffer queue and adds the Buffer.
+            If it is playing it throws an exception.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.SourceType">
+            <summary>
+            Gets the SourceType of the Source
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioSource.SourceState">
+            <summary>
+            Gets the currentState of the source
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioListener.Orientation">
+            <summary>
+            Gets and Sets a pair of 3-tuples consisting of an 'at' vector and an 'up' vector, where the 'at'
+            vector represents the 'forward' direction of the listener and the
+            orthogonal projection of the 'up' vector into the subspace 
+            perpendicular to the 'at' vector represents the 'up' direction 
+            for the listener. OpenAL expects two vectors that are linearly 
+            independent. These vectors are not expected to be normalized. 
+            If the two vectors are linearly dependent, behavior is undefined.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioListener.Gain">
+            <summary>
+            Gets and Sets a scalar amplitude multiplier. As a source attribute, it applies to that particular source only. 
+            As a listener attribute, it effectively applies to all sources in the current context. 
+            The default 1.0 means that the sound is unattenuated. 
+            An AL_GAIN value of 0.5 is equivalent to an attenuation of 6 dB. 
+            The value zero equals silence (no contribution to the output mix). 
+            Driver implementations are free to optimize this case and skip mixing and processing stages where applicable. 
+            The implementation is in charge of ensuring artifact-free (click-free) changes of gain values and is free to defer actual modification of the sound samples, within the limits of acceptable latencies.
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioListener.Velocity">
+            <summary>
+            Gets and Sets the current velocity (speed and direction) of the object, in the world coordinate system.
+            Any 3-tuple of valid float/double values is allowed. The object AL_VELOCITY does not affect the source's position. 
+            OpenAL does not calculate the velocity from subsequent position updates, nor does it adjust the position over 
+            time based on the specified velocity. Any such calculation is left to the application. For the purposes of sound
+            processing, position and velocity are independent parameters affecting different aspects of the sounds. 
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioListener.Position">
+            <summary>
+            Gets and Sets the current location of the object in the world coordinate system. 
+            Any 3-tuple of valid float values is allowed. 
+            Implementation behavior on encountering NaN and infinity is not defined. 
+            The object position is always defined in the world coordinate system.
+            </summary>
+        </member>
+        <member name="T:OpenALDotNet.Extensions">
+            <summary>
+            Not started
+            </summary>
+        </member>
+        <member name="T:OpenALDotNet.WaveFileWriter">
+            <summary>
+            This class is used for saving out captured audio buffers
+            </summary>
+        </member>
+        <member name="M:OpenALDotNet.WaveFileWriter.CreateFile(System.String,OpenALDotNet.AudioFormatEnum)">
+            <summary>
+            Identifies the wave format and sets up the RIFF header information in the specified file.
+            </summary>
+            <param name="fileName">The file where the wave data will be streamed to</param>
+            <param name="captureAudioFormat">The audio format for the recorded data</param>
+        </member>
+        <member name="M:OpenALDotNet.WaveFileWriter.CreateTheRIFF(System.String)">
+            <summary>
+            Creates the RIFF header for the specified file name based on the pre-defined audio format
+            </summary>
+            <param name="FileName">The file where the wave data will be streamed to</param>
+        </member>
+        <member name="M:OpenALDotNet.WaveFileWriter.WriteCaptured(System.Byte[])">
+            <summary>
+            Appends Captured audio data to the established wave file.
+            </summary>
+            <param name="capturedData">The additional data to be written in to the wave file</param>
+        </member>
+        <member name="M:OpenALDotNet.WaveFileWriter.CloseFile">
+            <summary>
+            Closes the open wave file. Writes the final length information in the RIFF description
+            </summary>
+        </member>
+        <member name="M:OpenALDotNet.AudioBuffer.SplitMultiChannelAudio(System.Byte[],System.Int32,System.Byte[][])">
+            <summary>
+            Dont know if it works or if it even is close, but thought it might be usefull.
+            </summary>
+            <param name="source"></param>
+            <param name="bits"></param>
+            <param name="channels"></param>
+        </member>
+        <member name="P:OpenALDotNet.AudioBuffer.Frequency">
+            <summary>
+            Gets the frequency of buffer in Hz
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioBuffer.Size">
+            <summary>
+            Gets the size of buffer in bytes
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioBuffer.Bits">
+            <summary>
+            Gets the bit depth of buffer
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioBuffer.Channels">
+            <summary>
+            Gets the number of channels in buffer
+            > 1 is valid, but buffer won’t be positioned when played
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioBuffer.Format">
+            <summary>
+            Gets the Format based on Bits and Channels;
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioBuffer.Samples">
+            <summary>
+            Gets the number of Samples by Size / GetSampleSize(Bits, Channels)
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioBuffer.Seconds">
+            <summary>
+            Gets the seconds of play time in the buffer based on Samples / Frequency
+            </summary>
+        </member>
+        <member name="P:OpenALDotNet.AudioBuffer.IsNull">
+            <summary>
+            Gets if the buffer is null.
+            </summary>
+        </member>
+        <member name="T:OpenALDotNet.WaveFileReader">
+            <summary>
+            This class is used for independantly reading audio files
+            </summary>
+        </member>
+        <member name="M:OpenALDotNet.WaveFileReader.OpenFile(System.String)">
+            <summary>
+            Opens a wave file, reads in the properties and stores the wave Byte data
+            </summary>
+            <param name="fileName">The wave file to be opened</param>
+        </member>
+        <member name="M:OpenALDotNet.WaveFileReader.Bits">
+            <summary>
+            Identifies the wave format and sets up the RIFF header information in the specified file.
+            </summary>
+            <param name="fileName">The file where the wave data will be streamed to</param>
+            <param name="captureAudioFormat">The audio format for the recorded data</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="OpenSebJ-2008-Open">
+</Property><Property Name="Solution File" Value="E:\OpenSebJ\OpenSebJ-OpenAl\OpenSebJ-2008-Open.sln">
+</Property><Property Name="Date" Value="Friday, January 16, 2009">
+</Property><Property Name="Time" Value="21:24:33 PM">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\OpenALDotNet.csproj" Description="Project file successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\OpenALDotNet.csproj">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\OpenALDotNet.csproj.user" Description="Project user file successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\OpenALDotNet.csproj.user">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\AudioDevice.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\AudioDevice.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\AudioSource.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\AudioSource.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\WaveFileReader.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\WaveFileReader.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\OpenAlResource.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\OpenAlResource.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\Enums.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\Enums.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\AudioBuffer.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\AudioBuffer.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\Orientation.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\Orientation.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\OpenAlException.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\OpenAlException.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\WaveFileWriter.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\WaveFileWriter.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\Extensions.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\Extensions.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\AudioCaptureDevice.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\AudioCaptureDevice.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\AudioContext.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\AudioContext.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\AudioListener.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\AudioListener.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\OpenAudioLibrary.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\OpenAudioLibrary.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\Properties\AssemblyInfo.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\Streams\AudioStream.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\Streams\AudioStream.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\Streams\AudioCaptureStream.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\Streams\AudioCaptureStream.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\Streams\AudioStreamPlayer.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\Streams\AudioStreamPlayer.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\Collections\AudioSourceList.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\Collections\AudioSourceList.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\Collections\OpenAlIDResourceList.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\Collections\OpenAlIDResourceList.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\Collections\AudioBufferList.cs" Description="File successfully backed up as E:\OpenSebJ\OpenSebJ-OpenAl\Backup\Collections\AudioBufferList.cs">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\OpenALDotNet.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\OpenALDotNet.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="OpenALDotNet" Source="..\..\OpenALDotNet\trunk\src\OpenALDotNet.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
