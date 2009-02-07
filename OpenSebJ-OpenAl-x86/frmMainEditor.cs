@@ -76,6 +76,8 @@ namespace OpenSebJ
 
                 // Uses the path preset in the global settings
                 loadComposition();
+
+                this.SetWindowTitle();
             }
         }
 
@@ -187,6 +189,7 @@ namespace OpenSebJ
             {
                 globalSettings.osjFileName = saveFileDialog.FileName;
                 osjSave(globalSettings.osjFileName);
+                this.SetWindowTitle();
             }
 
         }
@@ -502,5 +505,15 @@ namespace OpenSebJ
             }
         }
 
+        private void SetWindowTitle()
+        {
+            int lastIndex = globalSettings.osjFileName.LastIndexOf('\\');
+
+            if (lastIndex < (globalSettings.osjFileName.Length))
+            {
+                string fileName = globalSettings.osjFileName.Substring(lastIndex + 1);
+                this.Text = string.Format("OpenSebJ - {0}", fileName);
+            }
+        }
     }
 }
