@@ -163,6 +163,13 @@ namespace OpenSebJ
         /// </param>
         public static void play(int position)
         {
+            // Check if a sample has been assigned to the selected position.
+            // If no sample has been assigned, function will exit without playing any sound
+            if (aSound[position] == null)
+            {
+                return;
+            }
+
             for(int p = 0; p < subChannels; p++)
             {
                 // If the subchannel is not playing then it can be used to play the audio
