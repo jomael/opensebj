@@ -68,6 +68,9 @@ namespace OpenSebJ
         // i.e. if it's been loaded from a file or if it has already been saved.
         public static string osjFileName = "";
 
+        // Path to directory that has been last used for open/save operations
+        public static string osjLastUserDir = String.Empty;
+
         // All variables that are Serializable, stored in the osj instance of OpenSebJSettings
         public static OpenSebJSettings osj = new OpenSebJSettings();
 
