@@ -540,7 +540,7 @@ namespace OpenSebJ
             int lastIndex = path.LastIndexOf('\\');
             if (lastIndex < path.Length)
             {
-                filename = path.Substring(0, lastIndex);
+                filename = path.Substring(lastIndex + 1);
             }
 
             return filename;
