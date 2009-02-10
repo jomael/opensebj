@@ -68,7 +68,7 @@ namespace OpenSebJ
         private void OpenFile(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            openFileDialog.InitialDirectory = globalSettings.osjLastUserDir;
             openFileDialog.Filter = "OpenSebJ Files (*.osj)|*.osj|All Files (*.*)|*.*";
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
@@ -78,6 +78,7 @@ namespace OpenSebJ
                 loadComposition();
 
                 this.SetWindowTitle();
+                globalSettings.osjLastUserDir = this.GetDirForPath(globalSettings.osjFileName);
             }
         }
 
@@ -183,15 +184,16 @@ namespace OpenSebJ
         private void saveDialogPop()
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            saveFileDialog.InitialDirectory = globalSettings.osjLastUserDir;
             saveFileDialog.Filter = "OpenSebJ Files (*.osj)|*.osj|All Files (*.*)|*.*";
             if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 globalSettings.osjFileName = saveFileDialog.FileName;
                 osjSave(globalSettings.osjFileName);
+                
                 this.SetWindowTitle();
+                globalSettings.osjLastUserDir = this.GetDirForPath(globalSettings.osjFileName);
             }
-
         }
 
         private void osjSave(string fileName)
@@ -274,12 +276,15 @@ namespace OpenSebJ
 
         public void createNewComposition()
         {
-            // Ensure yes was clicked
+            // Ensure yes was clicked          
             if(System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Do you want to create a new composition? Any unsaved changes will be lost.", "New Composition", System.Windows.Forms.MessageBoxButtons.YesNo))
             {
                 // Load the new composition which is packaged OpenSebJ
                 globalSettings.osjFileName = globalSettings.path + "NewComposition.osj";
                 loadComposition();
+
+                this.SetWindowTitle();
+                globalSettings.osjLastUserDir = this.GetDirForPath(globalSettings.osjFileName);
             }
         }
 
@@ -507,13 +512,38 @@ namespace OpenSebJ
 
         private void SetWindowTitle()
         {
-            int lastIndex = globalSettings.osjFileName.LastIndexOf('\\');
+            string filename = GetFileForPath(globalSettings.osjFileName);
+            this.Text = string.Format("OpenSebJ - {0}", filename);
+        }
 
-            if (lastIndex < (globalSettings.osjFileName.Length))
+        private string GetDirForPath(string path)
+        {
+            string dirPath = String.Empty;
+
+            int lastIndex = path.LastIndexOf('\\');
+            if (lastIndex < path.Length)
             {
-                string fileName = globalSettings.osjFileName.Substring(lastIndex + 1);
-                this.Text = string.Format("OpenSebJ - {0}", fileName);
+                dirPath = path.Substring(0, lastIndex);
             }
+            else
+            {
+                dirPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            }
+
+            return dirPath;
+        }
+
+        private string GetFileForPath(string path)
+        {
+            string filename = String.Empty;
+
+            int lastIndex = path.LastIndexOf('\\');
+            if (lastIndex < path.Length)
+            {
+                filename = path.Substring(0, lastIndex);
+            }
+
+            return filename;
         }
     }
 }
